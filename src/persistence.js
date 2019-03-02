@@ -17,7 +17,8 @@ function readAllObjects(req,res){
 function readOneObject(req,res){
   let id = req.params.id;
   let respuesta = (id<objects.length)?JSON.stringify(objects[id]):"No existe un objeto con ese ID";
-  res.send(respuesta);
+  let statusCode = (id<objects.length)?200:404;
+  res.status(statusCode).send(respuesta);
 }
 function addObject(req,res){
   //Llave primaria asignada de forma dinámica
@@ -50,7 +51,8 @@ function readAllCategories(req,res){
 function readOneCategory(req,res){
   let id = req.params.id;
   let respuesta = (id<categories)? JSON.stringify(categories[id]):"no hay una categoría con ese identificador";
-  res.send(respuesta);
+  let statusCode = (id<categories.length)?200:404;
+  res.status(statusCode).send(respuesta);
 }
 function addCategory(req,res){
   //Llave primaria asignada de forma dinámica
@@ -82,6 +84,7 @@ function readAllSubcategories(req,res){
 }
 function readOneSubcategory(req,res){
   let id = req.params.id;
+
   //res.send(JSON.stringify(objects[id]))
 }
 function addSubcategory(req,res){
