@@ -14,9 +14,9 @@ const usuarios = require('./resources/usuario.js');
 //app initialization
 const app = express();
 
-/**app.use('/objetos', objetos);
+app.use('/objetos', objetos);
 app.use('/categorias', categorias);
-app.use('/subcategorias', subcategorias);
+/**app.use('/subcategorias', subcategorias);
 app.use('/pagos', pagos);
 app.use('/prestamos', prestamos);
 app.use('/usuarios', usuarios);
