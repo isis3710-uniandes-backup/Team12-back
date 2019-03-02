@@ -1,12 +1,12 @@
 # Team12-back
 Integrantes:
-Juan Sebastián Espitia Acero
+Juan Sebastian Espitia Acero
 Jorleidis Paola Monsalvo Torres
-Miller Andrés Trujillo Achury
+Miller Andres Trujillo Achury
 
-Este repositorio contiene el código para la entrega 2 del curso Programación con Tecnologías web.
-El proyecto que se va a realizar consiste en una plataforma de préstamo de objetos y servicios entre personas naturales de varias ciudades de Colombia. 
-Se utilizarán los frameworks node.js y express.js para construir el API rest, que conecte 9 recursos con una base de datos y realice operaciones CRUD. Los recursos son:
+Este repositorio contiene el cï¿½digo para la entrega 2 del curso Programacion con Tecnologias web.
+El proyecto que se va a realizar consiste en una plataforma de prestamo de objetos y servicios entre personas naturales de varias ciudades de Colombia.
+Se utilizaran los frameworks node.js y express.js para construir el API rest, que conecte 9 recursos con una base de datos y realice operaciones CRUD. Los recursos son:
 -Usuarios
 -Objetos
 -Servicios
@@ -15,4 +15,4 @@ Se utilizarán los frameworks node.js y express.js para construir el API rest, qu
 -Pagos
 -Ciudades
 -Ofertas
--Préstamo
+-Prestamo
