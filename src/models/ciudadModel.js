@@ -18,5 +18,5 @@ exports.fk_on_create = function(city) {
 }
 
 exports.fk_on_update = function(city) {
-    return this.fk_on_create(user);
+    return this.fk_on_create(city);
 }
