@@ -1,8 +1,8 @@
 {
 	"variables": [],
 	"info": {
-		"name": "Categorias_test",
-		"_postman_id": "219b6632-e4df-9a16-c098-d8d2e1decbbd",
+		"name": "Subcategorias_test",
+		"_postman_id": "73b2bf05-ab78-8c53-28d8-3028bdde8131",
 		"description": "Pruebas del REST de las categorias",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -21,7 +21,7 @@
 				}
 			],
 			"request": {
-				"url": "localhost:3000/reset/categorias",
+				"url": "localhost:3000/reset/subcategorias",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -46,42 +46,11 @@
 				}
 			],
 			"request": {
-				"url": "localhost:3000/categories",
+				"url": "localhost:3000/categories/1/subcategorias/",
 				"method": "GET",
 				"header": [],
 				"body": {},
 				"description": "Obtener la coleccion vacia"
-			},
-			"response": []
-		},
-		{
-			"name": "POST equivocado",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"tests[\"Status code is 400\"] = responseCode.code === 400;"
-						]
-					}
-				}
-			],
-			"request": {
-				"url": "localhost:3000/categories",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"identificador\":1,\n\t\"nombre\":\"Aseo\"\n}"
-				},
-				"description": ""
 			},
 			"response": []
 		},
@@ -100,7 +69,7 @@
 				}
 			],
 			"request": {
-				"url": "localhost:3000/categories/1",
+				"url": "localhost:3000/categories/1/subcategorias/1",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -109,7 +78,38 @@
 			"response": []
 		},
 		{
-			"name": "Crear una categoria adecuadamente",
+			"name": "POST equivocado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 400\"] = responseCode.code === 400;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "localhost:3000/categories/1/subcategorias",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"identificador\":999,\n\t\"nombre\":\"Aseo\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Crear subcategoria adecuadamente",
 			"event": [
 				{
 					"listen": "test",
@@ -123,7 +123,7 @@
 				}
 			],
 			"request": {
-				"url": "localhost:3000/categories",
+				"url": "localhost:3000/categories/1/subcategorias/",
 				"method": "POST",
 				"header": [
 					{
@@ -134,14 +134,14 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"id\":0,\n\t\"name\":\"Herramientas\"\n}"
+					"raw": "{\n\t\"id\":1,\n\t\"name\":\"Llaves mecánicas\",\n\t\"category_id\":1\n}"
 				},
 				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "GET de la categoria",
+			"name": "GET de la subcategoria",
 			"event": [
 				{
 					"listen": "test",
@@ -154,7 +154,7 @@
 				}
 			],
 			"request": {
-				"url": "localhost:3000/categories/0",
+				"url": "localhost:3000/categories/1/subcategorias/1",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -163,7 +163,7 @@
 			"response": []
 		},
 		{
-			"name": "PUT de la categoria",
+			"name": "PUT de la subcategoria",
 			"event": [
 				{
 					"listen": "test",
@@ -176,7 +176,7 @@
 				}
 			],
 			"request": {
-				"url": "localhost:3000/categories/0",
+				"url": "localhost:3000/categories/1/subcategorias/1",
 				"method": "PUT",
 				"header": [
 					{
@@ -187,14 +187,14 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\":\"Construccion\"\n}"
+					"raw": "{\n\t\"name\":\"Herramientas electricas\"\n}"
 				},
 				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "DELETE de la categoria",
+			"name": "GET de la subcategoria copy",
 			"event": [
 				{
 					"listen": "test",
@@ -207,7 +207,29 @@
 				}
 			],
 			"request": {
-				"url": "localhost:3000/categories/0",
+				"url": "localhost:3000/categories/1/subcategorias/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE de la subcategoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "localhost:3000/categories/1/subcategorias/1",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
@@ -216,7 +238,7 @@
 			"response": []
 		},
 		{
-			"name": "GET de la categoria",
+			"name": "GET de la subcategoria",
 			"event": [
 				{
 					"listen": "test",
@@ -229,7 +251,7 @@
 				}
 			],
 			"request": {
-				"url": "localhost:3000/categories/0",
+				"url": "localhost:3000/categories/1/subcategorias/1",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -238,21 +260,21 @@
 			"response": []
 		},
 		{
-			"name": "Crear categoria para otras pruebas",
+			"name": "Crear subcategoria para otras pruebas",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"type": "text/javascript",
 						"exec": [
-							"tests[\"Status code is 200\"] = responseCode.code ===200;",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
 							""
 						]
 					}
 				}
 			],
 			"request": {
-				"url": "localhost:3000/categories",
+				"url": "localhost:3000/categories/1/subcategorias/",
 				"method": "POST",
 				"header": [
 					{
@@ -263,7 +285,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"id\":0,\n\t\"name\":\"Herramientas\"\n}"
+					"raw": "{\n\t\"id\":1,\n\t\"name\":\"Llaves mecánicas\",\n\t\"category_id\":1\n}"
 				},
 				"description": ""
 			},

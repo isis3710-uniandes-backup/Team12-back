@@ -61,7 +61,7 @@ class subresourcesController {
                 });
                 res.status(200).json(JSON.parse(data));
             } else {
-                res.status(400).send();
+                res.status(400).send('problemas de llave foranea en la ruta');
             }
         });
     }
@@ -81,7 +81,7 @@ class subresourcesController {
             var result = Joi.validate(req.body, this.model.createSchema);
             if (result.error) {
                 console.log(result.error);
-                res.status(400).send();
+                res.status(400).send('El formato no corresponde con el esquema del recurso');
                 return;
             }
             for (var i = 0; i < resources.length; i++) {
@@ -91,14 +91,14 @@ class subresourcesController {
                 }
             }
             if (resource) {
-                res.status(400).send();
+                res.status(400).send('Ya existe un recurso con ese identificador');
             } else {
                 var obj = {};
                 for (var i = 0; i < this.resourcesID.length; i++) {
                     obj[this.resourcesID[i]] = req.params[this.resourcesID[i]];
                 }
                 if (!this.model.fk_on_create(obj, req.body)) {
-                    res.status(400).send();
+                    res.status(400).send('Problemas de llave foranea');
                     return;
                 }
                 resources.push(req.body);
@@ -106,7 +106,7 @@ class subresourcesController {
                     if (err) {
                         throw err;
                     }
-                    res.status(200).send();
+                    res.status(200).send('Recurso creado con éxito');
                 });
             }
         });
@@ -131,12 +131,12 @@ class subresourcesController {
                     obj[this.resourcesID[i]] = req.params[this.resourcesID[i]];
                 }
                 if (!this.model.fk_on_read_one(obj, resource)) {
-                    res.status(400).send();
+                    res.status(400).send('Problemas de llave foranea');
                     return;
                 }
                 res.status(200).json(resource);
             } else {
-                res.status(404).send();
+                res.status(404).send('No se encontró el recurso especificado');
             }
         });
     }
@@ -176,17 +176,17 @@ class subresourcesController {
                     obj[this.resourcesID[i]] = req.params[this.resourcesID[i]];
                 }
                 if (!this.model.fk_on_update(obj, resource)) {
-                    res.status(400).send();
+                    res.status(400).send('Problemas de llave foranea al actualizar');
                     return;
                 }
                 fs.writeFile(this.file, JSON.stringify(resources), (err) => {
                     if (err) {
                         throw err;
                     }
-                    res.status(200).send();
+                    res.status(200).send('Se ha actualizado el recurso');
                 });
             } else {
-                res.status(404).send();
+                res.status(404).send('No se encontró el recurso especificado');
             }
         });
     }
@@ -217,7 +217,7 @@ class subresourcesController {
                     obj[this.resourcesID[i]] = req.params[this.resourcesID[i]];
                 }
                 if (!this.model.fk_on_delete(obj, resource)) {
-                    res.status(400).send();
+                    res.status(400).send('Problemas de llave foranea al eliminar');
                     return;
                 }
                 resources = resources.filter((e) => {
@@ -227,10 +227,10 @@ class subresourcesController {
                     if (err) {
                         throw err;
                     }
-                    res.status(200).send();
+                    res.status(200).send('Se eliminó el recurso exitosamente');
                 });
             } else {
-                res.status(404).send();
+                res.status(404).send('El recurso especificado no existe');
             }
         });
     }
