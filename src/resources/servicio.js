@@ -1,16 +1,26 @@
-const controller = require('../controllers/subresourcesController');
+const Controller = require('../controllers/subresourcesController');
 
 module.exports = function(app) {
-	controller.init(require('../models/servicioModel'), './data/servicios.json', ['userID', 'serviceID']);
+	var c = new Controller(require('../models/servicioModel'), './data/servicios.json', ['userID', 'serviceID'], 'seller_id');
 
-    // users Routes
+    // services Routes
     app.route('/users/:userID/services')
-        .get(controller.list_all)
-        .post(controller.create);
+        .get(function(req, res)  {
+		    c.list_all(req, res);
+		})
+        .post(function(req, res)  {
+		    c.create(req, res);
+		});
 
 
     app.route('/users/:userID/services/:serviceID')
-        .get(controller.read_one)
-        .put(controller.update_one)
-        .delete(controller.delete_one);
+        .get(function(req, res)  {
+		    c.read_one(req, res);
+		})
+        .put(function(req, res)  {
+		    c.update_one(req, res);
+		})
+        .delete(function(req, res)  {
+		    c.delete_one(req, res);
+		});
 };

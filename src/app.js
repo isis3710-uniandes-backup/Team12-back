@@ -19,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 users(app);
 ciudades(app);
+servicios(app);
 //objetos(app);
 //categorias(app);
 //subcategorias(app);
