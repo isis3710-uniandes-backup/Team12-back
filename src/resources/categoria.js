@@ -1,13 +1,15 @@
-//Acá va el CRUD
-var express = require('express');
-//const app = express();
-const persistence = require('../persistence.js');
-const router = express.Router();
+const controller = require('../controllers/resourcesController');
 
-router.get('/',(req,res)=>{
-  persistence.readAllCategories(req,res);
-});
-router.get('/:id', (req,res)=>{
-  persistence.readOneCategory(req,res);
-});
-module.exports = router;
+module.exports = function(app) {
+	controller.init(require('../models/categoriaModel'), './data/categorias.json', 'categoriaID');
+    // users Routes
+    app.route('/categories')
+        .get(controller.list_all)
+        .post(controller.create);
+
+
+    app.route('/categories/:categoriaID')
+        .get(controller.read_one)
+        .put(controller.update_one)
+        .delete(controller.delete_one);
+};

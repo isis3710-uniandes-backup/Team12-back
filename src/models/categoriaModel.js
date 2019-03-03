@@ -1,8 +1,18 @@
-const schema = require("schm");
+const joi = require('joi');
 
-const categorySchema = schema({
-    id: Number,
-    name: String
-});
+exports.createSchema = {
+    id: joi.number().required(),
+    name: joi.string().required()
+};
 
-module.exports = categorySchema;
+exports.updateSchema = {
+    name: joi.string().optional()
+};
+
+exports.fk_on_create = function(category) {
+    return true;
+}
+
+exports.fk_on_update = function(category) {
+    return true;
+}

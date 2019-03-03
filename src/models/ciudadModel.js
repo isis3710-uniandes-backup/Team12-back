@@ -1,8 +1,22 @@
-const schema = require("schm");
+const Joi = require('joi');
 
-const citySchema = schema({
-    id: Number,
-    name: String
-});
+exports.createSchema = {
+    id: Joi.number().required(),
+    name: Joi.string().required()
+};
 
-module.exports = citySchema;
+exports.updateSchema = {
+    name: Joi.string().optional()
+};
+
+/*
+    En caso de no tener que revisar ninguna llave. Simplemente retornar true.
+*/
+
+exports.fk_on_create = function(city) {
+    return true;
+}
+
+exports.fk_on_update = function(city) {
+    return this.fk_on_create(user);
+}

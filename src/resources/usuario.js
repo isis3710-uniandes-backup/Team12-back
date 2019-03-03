@@ -1,14 +1,16 @@
-const controller = require('../controllers/usuarioController');
+const controller = require('../controllers/resourcesController');
 
 module.exports = function(app) {
+	controller.init(require('../models/usuarioModel'), './data/usuarios.json', 'userID');
+
     // users Routes
     app.route('/users')
-        .get(controller.list_all_users)
-        .post(controller.create_user);
+        .get(controller.list_all)
+        .post(controller.create);
 
 
     app.route('/users/:userID')
-        .get(controller.read_a_user)
-        .put(controller.update_a_user)
-        .delete(controller.delete_a_user);
+        .get(controller.read_one)
+        .put(controller.update_one)
+        .delete(controller.delete_one);
 };

@@ -1,14 +1,15 @@
-const controller = require('../controllers/ciudadController');
+const controller = require('../controllers/resourcesController');
 
 module.exports = function(app) {
+	controller.init(require('../models/ciudadModel'), './data/ciudades.json', 'cityID');
     // users Routes
     app.route('/cities')
-        .get(controller.list_all_users)
-        .post(controller.create_user);
+        .get(controller.list_all)
+        .post(controller.create);
 
 
-    app.route('/cities/:ciryID')
-        .get(controller.read_a_user)
-        .put(controller.update_a_user)
-        .delete(controller.delete_a_user);
+    app.route('/cities/:cityID')
+        .get(controller.read_one)
+        .put(controller.update_one)
+        .delete(controller.delete_one);
 };

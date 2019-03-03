@@ -1,18 +1,49 @@
-const schema = require("schm");
+const Joi = require('joi');
+const fs = require('fs');
 
-// La idea del esquema es agregar validación de los datos que llegan a la app.
+exports.createSchema = {
+    id: Joi.number().required(),
+    name: Joi.string().required(),
+    lastname: Joi.string().required(),
+    dni: Joi.string().required(),
+    age: Joi.number().required(),
+    email: Joi.string().email().required(),
+    password: Joi.string().required(),
+    phone: Joi.string().required(),
+    address: Joi.string().required(),
+    city_id: Joi.number().required()
+};
 
-const userSchema = schema({
-	id: Number,
-    name: String,
-    lastname: String,
-    dni: String,
-    age: Number,
-    email: String,
-    password: String,
-    phone: String,
-    address: String,
-    city: Number
-});
+exports.updateSchema = {
+    name: Joi.string().optional(),
+    lastname: Joi.string().optional(),
+    dni: Joi.string().optional(),
+    age: Joi.number().optional(),
+    email: Joi.string().email().optional(),
+    password: Joi.string().optional(),
+    phone: Joi.string().optional(),
+    address: Joi.string().optional(),
+    city_id: Joi.number().optional()
+};
 
-module.exports = userSchema;
+/*
+    En caso de no tener que revisar ninguna llave. Simplemente retornar true.
+*/
+
+exports.fk_on_create = function(user) {
+    var file = './data/ciudades.json';
+    var data = fs.readFileSync(file, 'utf8');
+    var cities = JSON.parse(data);
+    for (var i = 0; i < cities.length; i++) {
+        if (cities[i].id == user.city_id) {
+            return true;
+        }
+    }
+    return false;
+}
+
+exports.fk_on_update = function(user) {
+    if (user.city_id !== undefined)
+        return this.fk_on_create(user);
+    return true;
+}

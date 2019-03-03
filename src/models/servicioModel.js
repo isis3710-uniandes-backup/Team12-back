@@ -1,4 +1,4 @@
-const schema = require("schm");
+/*const schema = require("schm");
 
 const serviceSchema = schema({
     id: Number,
@@ -8,4 +8,4 @@ const serviceSchema = schema({
     price: Number
 });
 
-module.exports = serviceSchema;
+module.exports = serviceSchema;*/

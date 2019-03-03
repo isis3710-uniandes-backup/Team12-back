@@ -18,16 +18,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 users(app);
-
-app.use('/objetos', objetos);
-app.use('/categorias', categorias);
-/**app.use('/subcategorias', subcategorias);
-app.use('/pagos', pagos);
-app.use('/prestamos', prestamos);
-app.use('/usuarios', usuarios);
-app.use('/servicios', servicios);
-app.use('/ofertas', ofertas);
-app.use('/ciudades', ciudades);**/
+ciudades(app);
+//objetos(app);
+categorias(app);
+//subcategorias(app);
+app.use('/objetos', objetos)
 
 let port = process.env.PORT || 3000;
 
