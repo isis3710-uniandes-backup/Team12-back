@@ -10,9 +10,14 @@ const pagos = require('./resources/pago.js');
 const prestamos = require('./resources/prestamo.js');
 const servicios = require('./resources/servicio.js');
 const subcategorias = require('./resources/subcategoria.js');
-const usuarios = require('./resources/usuario.js');
+const users = require('./resources/usuario.js');
 //app initialization
 const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+users(app);
 
 app.use('/objetos', objetos);
 app.use('/categorias', categorias);
@@ -24,6 +29,6 @@ app.use('/servicios', servicios);
 app.use('/ofertas', ofertas);
 app.use('/ciudades', ciudades);**/
 
-let port = 3000;
+let port = process.env.PORT || 3000;
 
 app.listen(port, () => {console.log('Server is up and running on port number ' + port);});
