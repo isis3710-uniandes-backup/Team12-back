@@ -1,16 +1,17 @@
 const joi = require('joi');
+const fs = require('fs');
 
 exports.createSchema = {
     id: joi.number().required(),
     name: joi.string().required(),
-    category_id: joi.number().positive().integer().required()
+    category_id: joi.number().integer().required()
 };
 
 exports.updateSchema = {
     name: joi.string().optional()
 };
 
-exports.fk_on_create = function(subcategory) {
+exports.fk_on_create = function(subcategory, c) {
   let data = fs.readFileSync('./data/usuarios.json', 'utf8');
   let categories = JSON.parse(data);
   for (let i = 0; i < categories.length; i++) {
@@ -21,6 +22,6 @@ exports.fk_on_create = function(subcategory) {
   return false;
 }
 
-exports.fk_on_update = function(subcategory) {
-    return fk_on_create(subcategory);
+exports.fk_on_update = function(subcategory,c) {
+    return fk_on_create(subcategory,c);
 }

@@ -21,11 +21,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 users(app);
 ciudades(app);
 servicios(app);
-//objetos(app);
+objetos(app);
 categorias(app);
 //subcategorias(app);
 reset(app);
-app.use('/objetos', objetos)
+//app.use('/objetos', objetos)
 
 let port = process.env.PORT || 3000;
 

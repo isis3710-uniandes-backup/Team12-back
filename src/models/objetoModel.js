@@ -1,4 +1,5 @@
 const joi = require("joi");
+const fs = require("fs");
 
 const objectSchema = {
     id: joi.number().positive().integer().required(),
@@ -7,21 +8,21 @@ const objectSchema = {
     rating: joi.number().min(0).max(10).optional(),
     seller_id: joi.number().required(),
     description: joi.string().required(),
-    category_id: joi.number().positive().integer().optional(),
-    subcategory_id: joi.string().positive().integer().optional(),
+    category_id: joi.number().integer().optional(),
+    subcategory_id: joi.number().integer().optional(),
     available: joi.boolean().required()
 };
 const updateSchema = {
     name: joi.string().optional(),
-    price: joi.number().positive().integer().optional(),
+    price: joi.number().optional(),
     rating: joi.number().min(0).max(10).optional(),
     description: joi.string().optional(),
-    category_id: joi.string().positive().integer().optional(),
-    subcategory_id: joi.string().positive().integer().optional(),
+    category_id: joi.number().integer().optional(),
+    subcategory_id: joi.number().integer().optional(),
     available: joi.boolean().optional()
 };
 
-const fk_on_create = function(object) {
+const fk_on_create = function(object, s) {
     var category_ok = object.category_id==undefined;
     var subcategory_ok = object.subcategory_id==undefined;
     var seller_ok = false;
@@ -53,13 +54,13 @@ const fk_on_create = function(object) {
     return (category_ok && subcategory_ok) && seller_ok;
 }
 
-const fk_on_update = function(object) {
+const fk_on_update = function(object, s) {
     if (object.category_id !== undefined || object.subcategory_id !== undefined)
-        return this.fk_on_create(object);
+        return this.fk_on_create(object,s);
     return true;
 }
 
 module.exports.createSchema = objectSchema;
 module.exports.updateSchema = updateSchema;
-module.exports.checkFKCreate = fk_on_create;
-module.exports.checkFKUpdate = fk_on_update;
+module.exports.fk_on_create = fk_on_create;
+module.exports.fk_on_update = fk_on_update;

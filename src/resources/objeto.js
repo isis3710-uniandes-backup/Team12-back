@@ -1,12 +1,25 @@
-var express = require('express');
-//const app = express();
-const persistence = require('./persistence.js');
-const router = express.Router();
+const Controller = require('../controllers/subresourcesController');
 
-router.get('/',(req,res)=>{
-  persistence.readAllObjects(req,res);
-});
-router.get('/:id', (req,res)=>{
-  persistence.readOneObject(req,res);
-});
-module.exports = router;
+module.exports = function(app) {
+	var c = new Controller(require('../models/objetoModel'), './data/objetos.json', ['userID', 'objectID'], 'seller_id');
+
+    // services Routes
+    app.route('/users/:userID/objetos')
+        .get(function(req, res)  {
+		    c.list_all(req, res);
+		})
+        .post(function(req, res)  {
+		    c.create(req, res);
+		});
+
+    app.route('/users/:userID/objetos/:objectID')
+        .get(function(req, res)  {
+		    c.read_one(req, res);
+		})
+        .put(function(req, res)  {
+		    c.update_one(req, res);
+		})
+        .delete(function(req, res)  {
+		    c.delete_one(req, res);
+		});
+};
