@@ -1,30 +1,30 @@
 const joi = require("joi");
 
 const objectSchema = {
-    id: joi.number.positive().integer().required(),
-    name: joi.string.required(),
-    price: joi.number.required(),
-    rating: joi.number.min(0).max(10).optional(),
-    seller_id: joi.number.required(),
-    description: joi.string.required(),
-    category_id: joi.number.positive().integer().optional(),
-    subcategory_id: joi.string.positive().integer().optional(),
+    id: joi.number().positive().integer().required(),
+    name: joi.string().required(),
+    price: joi.number().required(),
+    rating: joi.number().min(0).max(10).optional(),
+    seller_id: joi.number().required(),
+    description: joi.string().required(),
+    category_id: joi.number().positive().integer().optional(),
+    subcategory_id: joi.string().positive().integer().optional(),
     available: joi.boolean().required()
 };
 const updateSchema = {
-    name: joi.string.optional(),
-    price: joi.number.positive().integer().optional(),
-    rating: joi.number.min(0).max(10).optional(),
-    description: joi.string.optional(),
-    category_id: joi.string.positive().integer().optional(),
-    subcategory_id: joi.string.positive().integer().optional(),
+    name: joi.string().optional(),
+    price: joi.number().positive().integer().optional(),
+    rating: joi.number().min(0).max(10).optional(),
+    description: joi.string().optional(),
+    category_id: joi.string().positive().integer().optional(),
+    subcategory_id: joi.string().positive().integer().optional(),
     available: joi.boolean().optional()
 };
 
-const fk_on_create = function(object, seller_checked) {
+const fk_on_create = function(object) {
     var category_ok = object.category_id==undefined;
     var subcategory_ok = object.subcategory_id==undefined;
-    var seller_ok = seller_checked;
+    var seller_ok = false;
     if(object.category_id!==undefined){
         let data = fs.readFileSync('./data/categorias.json', 'utf8');
         let categories = JSON.parse(data);
@@ -55,7 +55,7 @@ const fk_on_create = function(object, seller_checked) {
 
 const fk_on_update = function(object) {
     if (object.category_id !== undefined || object.subcategory_id !== undefined)
-        return this.fk_on_create(object, true);
+        return this.fk_on_create(object);
     return true;
 }
 

@@ -11,6 +11,7 @@ const prestamos = require('./resources/prestamo.js');
 const servicios = require('./resources/servicio.js');
 const subcategorias = require('./resources/subcategoria.js');
 const users = require('./resources/usuario.js');
+const reset = require('./resources/reset.js');
 //app initialization
 const app = express();
 
@@ -20,8 +21,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 users(app);
 ciudades(app);
 //objetos(app);
-//categorias(app);
+categorias(app);
 //subcategorias(app);
+reset(app);
 app.use('/objetos', objetos)
 
 let port = process.env.PORT || 3000;

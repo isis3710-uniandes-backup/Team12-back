@@ -1,16 +1,15 @@
-/*const controller = require('../controllers/resourcesController');
+const Controller = require('../controllers/resourcesController');
 
 module.exports = function(app) {
-	controller.init(require('../models/categoriaModel'), './data/categorias.json', 'categoriaID');
+	var c = new Controller(require('../models/categoriaModel'), './data/categorias.json', 'categoriaID');
     // users Routes
     app.route('/categories')
-        .get(controller.list_all)
-        .post(controller.create);
+        .get((req,res)=>{c.list_all(req,res)})
+        .post((req,res)=>{c.create(req,res)});
 
 
     app.route('/categories/:categoriaID')
-        .get(controller.read_one)
-        .put(controller.update_one)
-        .delete(controller.delete_one);
+        .get((req,res)=>{c.read_one(req,res)})
+        .put((req,res)=>{c.update_one(req,res)})
+        .delete((req,res)=>{c.delete_one(req,res)});
 };
-*/
