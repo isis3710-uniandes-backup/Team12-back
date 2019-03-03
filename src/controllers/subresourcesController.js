@@ -156,7 +156,7 @@ class subresourcesController {
             var resource = null;
             var result = Joi.validate(req.body, this.model.updateSchema);
             if (result.error) {
-                res.status(400).send();
+                res.status(400).send('Solicitud inadecuada: revisar cuerpo de peticion');
                 return;
             }
             for (var i = 0; i < resources.length; i++) {
@@ -223,7 +223,6 @@ class subresourcesController {
                 resources = resources.filter((e) => {
                     return e.id != req.params[this.resourcesID[this.resourcesID.length - 1]];
                 });
-                console.log(resources);
                 fs.writeFile(this.file, JSON.stringify(resources), (err) => {
                     if (err) {
                         throw err;
