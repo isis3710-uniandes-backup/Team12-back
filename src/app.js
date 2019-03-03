@@ -23,7 +23,7 @@ ciudades(app);
 servicios(app);
 objetos(app);
 categorias(app);
-//subcategorias(app);
+subcategorias(app);
 reset(app);
 //app.use('/objetos', objetos)
 
