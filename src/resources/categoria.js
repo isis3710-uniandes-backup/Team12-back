@@ -1,4 +1,4 @@
-const controller = require('../controllers/resourcesController');
+/*const controller = require('../controllers/resourcesController');
 
 module.exports = function(app) {
 	controller.init(require('../models/categoriaModel'), './data/categorias.json', 'categoriaID');
@@ -13,3 +13,4 @@ module.exports = function(app) {
         .put(controller.update_one)
         .delete(controller.delete_one);
 };
+*/

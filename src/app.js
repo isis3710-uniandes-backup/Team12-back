@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 users(app);
 ciudades(app);
 //objetos(app);
-categorias(app);
+//categorias(app);
 //subcategorias(app);
 app.use('/objetos', objetos)
 

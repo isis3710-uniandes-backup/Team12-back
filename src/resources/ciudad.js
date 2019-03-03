@@ -1,15 +1,25 @@
-const controller = require('../controllers/resourcesController');
+const Controller = require('../controllers/resourcesController');
 
 module.exports = function(app) {
-	controller.init(require('../models/ciudadModel'), './data/ciudades.json', 'cityID');
-    // users Routes
-    app.route('/cities')
-        .get(controller.list_all)
-        .post(controller.create);
+	var c = new Controller(require('../models/ciudadModel'), './data/ciudades.json', 'cityID');
+    // cities Routes
+   	app.route('/cities')
+        .get(function(req, res)  {
+		    c.list_all(req, res);
+		})
+        .post(function(req, res)  {
+		    c.create(req, res);
+		});
 
 
     app.route('/cities/:cityID')
-        .get(controller.read_one)
-        .put(controller.update_one)
-        .delete(controller.delete_one);
+        .get(function(req, res)  {
+		    c.read_one(req, res);
+		})
+        .put(function(req, res)  {
+		    c.update_one(req, res);
+		})
+        .delete(function(req, res)  {
+		    c.delete_one(req, res);
+		});
 };

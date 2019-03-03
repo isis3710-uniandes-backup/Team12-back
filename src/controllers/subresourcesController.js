@@ -1,11 +1,12 @@
 const fs = require('fs');
 const Joi = require('joi');
 
-class resourcesController {
-    constructor(pModel, pFile, pResourceID) {
+class subresourcesController {
+    constructor(pModel, pFile, pResourceID, pParentID) {
         this.model = pModel;
         this.file = pFile;
-        this.resourceID = pResourceID;
+        this.resourcesID = pResourceID;
+        this.parentID = pParentID;
     }
 
     get model() {
@@ -16,8 +17,12 @@ class resourcesController {
         return this._file;
     }
 
-    get resourceID() {
-        return this._resourceID;
+    get resourcesID() {
+        return this._resourcesID;
+    }
+
+    get parentID() {
+        return this._parentID;
     }
 
     set model(model) {
@@ -28,15 +33,23 @@ class resourcesController {
         this._file = file;;
     }
 
-    set resourceID(resourceID) {
-        this._resourceID = resourceID;
+    set resourcesID(resourcesID) {
+        this._resourcesID = resourcesID;
+    }
+
+    set parentID(parentID) {
+        this._parentID = parentID;
     }
 
     list_all(req, res) {
-        fs.readFile(this.file, 'utf8', (err, data) => {
+        fs.readFile(file, 'utf8', (err, data) => {
             if (err) {
                 throw err;
             }
+            var resources = JSON.parse(data);
+            resources = resources.filter((e) => {
+                return e[this.parentID] == req.params[this.resourcesID[this.resourcesID.length - 2]];
+            });
             res.status(200).json(JSON.parse(data));
         });
     }
@@ -65,21 +78,26 @@ class resourcesController {
                     break;
                 }
             }
-            if (!this.model.fk_on_create(req.body)) {
-                res.status(400).send('Problemas con la llave foranea');
+            var obj = {};
+            for (var i = 0; i < this.resourcesID.length; i++) {
+                obj[this.resourcesID[i]] = req.params[this.resourcesID[i]];
+            }
+            if (!this.model.fk_on_create(obj, req.body)) {
+                res.status(400).send();
             } else if (resource) {
-                res.status(400).send('Ya existe un recurso con ese identificador');
+                res.status(400).send();
             } else {
                 resources.push(req.body);
                 fs.writeFile(this.file, JSON.stringify(resources), (err) => {
                     if (err) {
                         throw err;
                     }
-                    res.status(200).send('Se ha creado un nuevo recurso');
+                    res.status(200).send();
                 });
             }
         });
     }
+
     read_one(req, res) {
         fs.readFile(this.file, 'utf8', (err, data) => {
             if (err) {
@@ -88,7 +106,7 @@ class resourcesController {
             var resources = JSON.parse(data);
             var resource = null;
             for (var i = 0; i < resources.length; i++) {
-                if (resources[i].id == req.params[this.resourceID]) {
+                if (resources[i].id == req.params[this.resourcesID[this.resourcesID.length - 1]]) {
                     resource = resources[i];
                     break;
                 }
@@ -96,7 +114,7 @@ class resourcesController {
             if (resource) {
                 res.status(200).json(resource);
             } else {
-                res.status(404).send('No se encuentra el recurso especificado');
+                res.status(404).send();
             }
         });
     }
@@ -116,22 +134,26 @@ class resourcesController {
             var resource = false;
             var result = Joi.validate(req.body, this.model.updateSchema);
             if (result.error) {
-                res.status(400).send('Solicitud inadecuada: revisar cuerpo de peticion');
+                res.status(400).send();
                 return;
             }
             for (var i = 0; i < resources.length; i++) {
-                if (resources[i].id == req.params[this.resourceID]) {
+                if (resources[i].id == req.params[this.resourcesID[this.resourcesID.length - 1]]) {
                     var newresource = req.body;
                     for (var key in newresource) {
                         if (newresource[key] !== undefined)
                             resources[i][key] = newresource[key];
                     }
-                  resource = true;
-                  break;
+                    resource = true;
+                    break;
                 }
             }
-            if (!this.model.fk_on_update(req.body)) {
-                res.status(400).send('Problemas con la fk');
+            var obj = {};
+            for (var i = 0; i < this.resourcesID.length; i++) {
+                obj[this.resourcesID[i]] = req.params[this.resourcesID[i]];
+            }
+            if (!this.model.fk_on_update(obj, req.body)) {
+                res.status(400).send();
             } else if (resource) {
                 fs.writeFile(this.file, JSON.stringify(resources), (err) => {
                     if (err) {
@@ -140,7 +162,7 @@ class resourcesController {
                     res.status(200).send();
                 });
             } else {
-                res.status(404).send('No existe el recurso especificado');
+                res.status(404).send();
             }
         });
     }
@@ -160,27 +182,27 @@ class resourcesController {
             var resources = JSON.parse(data);
             var resource = false;
             for (var i = 0; i < resources.length; i++) {
-                if (resources[i].id == req.params[this.resourceID]) {
+                if (resources[i].id == req.params[this.resourcesID[this.resourcesID.length - 1]]) {
                     resource = true;
                     break;
                 }
             }
             if (resource) {
                 resources = resources.filter((e) => {
-                    return e.id != req.params[this.resourceID];
+                    return e.id != req.params[this.resourcesID[this.resourcesID.length - 1]];
                 });
                 console.log(resources);
                 fs.writeFile(this.file, JSON.stringify(resources), (err) => {
                     if (err) {
                         throw err;
                     }
-                    res.status(200).send('Recurso eliminado exitosamente');
+                    res.status(200).send();
                 });
             } else {
-                res.status(404).send('No existe el recurso especificado');
+                res.status(404).send();
             }
         });
     }
 }
 
-module.exports = resourcesController;
+module.exports = subresourcesController;

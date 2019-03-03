@@ -1,11 +1,9 @@
-/*const schema = require("schm");
+const Joi = require("joi");
 
-const serviceSchema = schema({
-    id: Number,
-    seller_id: Number,
-    name: String,
-    description: String,
-    price: Number
-});
-
-module.exports = serviceSchema;*/
+exports.serviceSchema = {
+    id: Joi.number().required(),
+    seller_id: Joi.number().required(),
+    name: Joi.string().required(),
+    description: Joi.string().required(),
+    price: Joi.number().required()
+};
