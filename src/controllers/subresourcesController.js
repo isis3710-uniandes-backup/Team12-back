@@ -42,15 +42,27 @@ class subresourcesController {
     }
 
     list_all(req, res) {
-        fs.readFile(file, 'utf8', (err, data) => {
+        fs.readFile(this.file, 'utf8', (err, data) => {
             if (err) {
                 throw err;
             }
             var resources = JSON.parse(data);
-            resources = resources.filter((e) => {
-                return e[this.parentID] == req.params[this.resourcesID[this.resourcesID.length - 2]];
-            });
-            res.status(200).json(JSON.parse(data));
+            if (resources.length == 0) {
+                res.status(200).json(JSON.parse(data));
+                return;
+            }
+            var obj = {};
+            for (var i = 0; i < this.resourcesID.length; i++) {
+                obj[this.resourcesID[i]] = req.params[this.resourcesID[i]];
+            }
+            if (this.model.fk_on_list_all(obj)) {
+                resources = resources.filter((e) => {
+                    return e[this.parentID] == req.params[this.resourcesID[this.resourcesID.length - 2]];
+                });
+                res.status(200).json(JSON.parse(data));
+            } else {
+                res.status(400).send();
+            }
         });
     }
 
@@ -78,15 +90,17 @@ class subresourcesController {
                     break;
                 }
             }
-            var obj = {};
-            for (var i = 0; i < this.resourcesID.length; i++) {
-                obj[this.resourcesID[i]] = req.params[this.resourcesID[i]];
-            }
-            if (!this.model.fk_on_create(obj, req.body)) {
-                res.status(400).send();
-            } else if (resource) {
+            if (resource) {
                 res.status(400).send();
             } else {
+                var obj = {};
+                for (var i = 0; i < this.resourcesID.length; i++) {
+                    obj[this.resourcesID[i]] = req.params[this.resourcesID[i]];
+                }
+                if (!this.model.fk_on_create(obj, req.body)) {
+                    res.status(400).send();
+                    return;
+                }
                 resources.push(req.body);
                 fs.writeFile(this.file, JSON.stringify(resources), (err) => {
                     if (err) {
@@ -112,6 +126,14 @@ class subresourcesController {
                 }
             }
             if (resource) {
+                var obj = {};
+                for (var i = 0; i < this.resourcesID.length; i++) {
+                    obj[this.resourcesID[i]] = req.params[this.resourcesID[i]];
+                }
+                if (!this.model.fk_on_read_one(obj, resource)) {
+                    res.status(400).send();
+                    return;
+                }
                 res.status(200).json(resource);
             } else {
                 res.status(404).send();
@@ -131,7 +153,7 @@ class subresourcesController {
                 throw err;
             }
             var resources = JSON.parse(data);
-            var resource = false;
+            var resource = null;
             var result = Joi.validate(req.body, this.model.updateSchema);
             if (result.error) {
                 res.status(400).send();
@@ -144,17 +166,19 @@ class subresourcesController {
                         if (newresource[key] !== undefined)
                             resources[i][key] = newresource[key];
                     }
-                    resource = true;
+                    resource = resources[i];
                     break;
                 }
             }
-            var obj = {};
-            for (var i = 0; i < this.resourcesID.length; i++) {
-                obj[this.resourcesID[i]] = req.params[this.resourcesID[i]];
-            }
-            if (!this.model.fk_on_update(obj, req.body)) {
-                res.status(400).send();
-            } else if (resource) {
+            if (resource) {
+                var obj = {};
+                for (var i = 0; i < this.resourcesID.length; i++) {
+                    obj[this.resourcesID[i]] = req.params[this.resourcesID[i]];
+                }
+                if (!this.model.fk_on_update(obj, resource)) {
+                    res.status(400).send();
+                    return;
+                }
                 fs.writeFile(this.file, JSON.stringify(resources), (err) => {
                     if (err) {
                         throw err;
@@ -180,14 +204,22 @@ class subresourcesController {
                 throw err;
             }
             var resources = JSON.parse(data);
-            var resource = false;
+            var resource = null;
             for (var i = 0; i < resources.length; i++) {
                 if (resources[i].id == req.params[this.resourcesID[this.resourcesID.length - 1]]) {
-                    resource = true;
+                    resource = resources[i];
                     break;
                 }
             }
-            if (resource) {
+             if (resource) {
+                var obj = {};
+                for (var i = 0; i < this.resourcesID.length; i++) {
+                    obj[this.resourcesID[i]] = req.params[this.resourcesID[i]];
+                }
+                if (!this.model.fk_on_delete(obj, resource)) {
+                    res.status(400).send();
+                    return;
+                }
                 resources = resources.filter((e) => {
                     return e.id != req.params[this.resourcesID[this.resourcesID.length - 1]];
                 });
