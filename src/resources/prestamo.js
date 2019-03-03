@@ -1,9 +1,9 @@
-const Controller = require('../controllers/resourcesController');
+const Controller = require('../controllers/subresourcesController');
 
 module.exports = function(app) {
 	var c = new Controller(require('../models/prestamoModel'), './data/prestamos.json', 'prestamoID');
 
-   	app.route('/objects/:objectID/prestamos')
+   	app.route('/users/:userID/objetos/:objectID/prestamos')
         .get(function(req, res)  {
 		    c.list_all(req, res);
 		})
@@ -12,7 +12,7 @@ module.exports = function(app) {
 		});
 
 
-    app.route('/objects/:objectID/prestamos/:prestamoID')
+    app.route('/users/:userID/objetos/:objectID/prestamos/:prestamoID')
         .get(function(req, res)  {
 		    c.read_one(req, res);
 		})
