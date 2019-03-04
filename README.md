@@ -19,3 +19,6 @@ Se utilizaran los frameworks node.js y express.js para construir el API rest, qu
 -Ciudades<br>
 -Ofertas<br>
 -Prestamo<br>
+
+<b>Despliegue</b><hr>
+Para desplegar esta aplicacion es necesario clonar el repositorio o descargar y descomprimir el código. Luego de esto, se abre un terminal de comandos en la ubicacion del proyecto (o se usa el comando cd), y en el directorio raiz se ejecuta el comando npm install, y al finalizar, se ejecuta npm start. <br>Desde el cliente de postman se pueden importar los archivos de colecciones que se encuentran en la carpeta postman-collections, y correr cada colección para probar el funcionamiento adecuado.
