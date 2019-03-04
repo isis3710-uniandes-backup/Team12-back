@@ -150,6 +150,52 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Crear un nuevo prestamo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a57de6f1-7561-494b-8695-ca651b2f3b14",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 2,\n        \"paymentId\": 1,\n        \"objectId\": 1,\n        \"userId\": 1,\n        \"startDate\": \"19/03/2018\",\n        \"endDate\": \"13/11/2019\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/1/objetos/1/prestamos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"1",
+						"objetos",
+						"1",
+						"prestamos"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
