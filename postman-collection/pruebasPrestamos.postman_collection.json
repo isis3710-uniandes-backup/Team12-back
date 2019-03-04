@@ -196,6 +196,53 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Actualizar el prestamo con id 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a57de6f1-7561-494b-8695-ca651b2f3b14",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n       \n        \"startDate\": \"21/03/2018\",\n        \"endDate\": \"13/11/2019\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/1/objetos/1/prestamos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"1",
+						"objetos",
+						"1",
+						"prestamos",
+						"1"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

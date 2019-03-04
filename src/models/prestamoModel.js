@@ -120,14 +120,20 @@ exports.fk_on_update = function(obj, prestamo) {
     var objects = JSON.parse(data2);
     
     var ans = false;
+    var usuarioOk=false;
     for (var i = 0; i < users.length; i++) {
-        for(var j=0; j < objects.length; j++){
-            if(users[i].id==obj.userID && objects[j].id==obj.objectID && objects[j].seller_id == users[i]){
-                ans = (true && prestamo.userId== users[i].id) && prestamo.objectId== obj.objectID;
-                break;
-            }
+        if(users[i].id==obj.userID){
+            usuarioOk=true;
+            break;
+        }
+        return false;
+    }
+    for(var j=0; j < objects.length; j++){
+        if(objects[j].id==obj.userID && objects[j].seller_id == obj.userID){
+            ans = (true && prestamo.userId== users[i].id) && prestamo.objectId== obj.userID;
         }
     }
+    
     return ans;
 }
 
