@@ -63,7 +63,7 @@ exports.fk_on_create = function(obj, prestamo) {
 
     var file2 = './data/objetos.json';
     var data2 = fs.readFileSync(file2, 'utf8');
-    var objects = JSON.parse(data);
+    var objects = JSON.parse(data2);
     
     var ans = false;
     var usuarioOk=false;
@@ -90,7 +90,7 @@ exports.fk_on_read_one = function(obj, prestamo) {
 
     var file2 = './data/objetos.json';
     var data2 = fs.readFileSync(file2, 'utf8');
-    var objects = JSON.parse(data);
+    var objects = JSON.parse(data2);
     
     var ans = false;
     var usuarioOk=false;
@@ -117,7 +117,7 @@ exports.fk_on_update = function(prestamo) {
 
     var file2 = './data/objetos.json';
     var data2 = fs.readFileSync(file2, 'utf8');
-    var objects = JSON.parse(data);
+    var objects = JSON.parse(data2);
     
     var ans = false;
     for (var i = 0; i < users.length; i++) {
@@ -131,14 +131,14 @@ exports.fk_on_update = function(prestamo) {
     return ans;
 }
 
-exports.fk_on_delete = function(obj, service) {
+exports.fk_on_delete = function(obj, prestamo) {
     var file = './data/usuarios.json';
     var data = fs.readFileSync(file, 'utf8');
     var users = JSON.parse(data);
 
     var file2 = './data/objetos.json';
     var data2 = fs.readFileSync(file2, 'utf8');
-    var objects = JSON.parse(data);
+    var objects = JSON.parse(data2);
     
     var ans = false;
     var usuarioOk=false;

@@ -1,0 +1,155 @@
+{
+	"info": {
+		"_postman_id": "fa10b9a0-c00f-40a5-8ee5-10fd0a77f736",
+		"name": "pruebasPrestamos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtener el prestamo con id 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a57de6f1-7561-494b-8695-ca651b2f3b14",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n    \"name\": \"Descuentos en herramientas\",\n    \"userId\": 1,\n    \"objetosId\": [1,2]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/1/objetos/1/prestamos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"1",
+						"objetos",
+						"1",
+						"prestamos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los prestamos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a57de6f1-7561-494b-8695-ca651b2f3b14",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n    \"name\": \"Descuentos en herramientas\",\n    \"userId\": 1,\n    \"objetosId\": [1,2]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/1/objetos/1/prestamos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"1",
+						"objetos",
+						"1",
+						"prestamos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar el prestamo con el id 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a57de6f1-7561-494b-8695-ca651b2f3b14",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"paymentId\": 1,\n    \"objectId\": 1,\n    \"userId\": 1,\n    \"startDate\": \"17/03/2018\",\n    \"endDate\": \"13/11/2019\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/1/objetos/1/prestamos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"1",
+						"objetos",
+						"1",
+						"prestamos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
