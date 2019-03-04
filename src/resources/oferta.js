@@ -1,7 +1,7 @@
 const Controller = require('../controllers/subresourcesController');
 
 module.exports = function(app) {
-	var c = new Controller(require('../models/ofertaModel'), './data/ofertas.json', ['userID', 'ofertaID'], 'userId');
+	var c = new Controller(require('../models/ofertaModel'), './data/ofertas.json', ['userID', 'ofertaID'], 'userId ');
 
     app.route('/users/:userID/ofertas')
         .get(function(req, res)  {

@@ -1,4 +1,6 @@
-const Joi = require('joi');
+const BaseJoi = require('joi');
+const Extension = require('joi-date-extensions');
+const Joi = BaseJoi.extend(Extension);
 const fs = require('fs');
 
 exports.createSchema = {
@@ -32,10 +34,8 @@ exports.fk_on_list_all = function(obj) {
     var objects = JSON.parse(data2);
 
     for (var i = 0; i < users.length; i++) {
-        ui = users[i].id;
         for(var j=0; j < objects.length; j++){
-            ob = objects[j];
-            if(ui==obj.userID && ob.id==obj.objectID && ob.seller_id == ui){
+            if(users[i].id==obj.userID && objects[j].id==obj.objectID && objects[j].seller_id == users[i]){
                 return true;
             }
         }

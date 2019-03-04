@@ -24,6 +24,9 @@ servicios(app);
 objetos(app);
 categorias(app);
 subcategorias(app);
+pagos(app);
+prestamos(app);
+ofertas(app);
 reset(app);
 //app.use('/objetos', objetos)
 

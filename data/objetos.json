@@ -7,5 +7,14 @@
         "description": "Taladro inalámbrico de broca específica",
         "category_id": 0,
         "available": true
+    },
+    {
+        "id": 2,
+        "name": "Taladro",
+        "price": 10000,
+        "seller_id": 1,
+        "description": "Taladro inalámbrico de broca específica",
+        "category_id": 0,
+        "available": true
     }
 ]

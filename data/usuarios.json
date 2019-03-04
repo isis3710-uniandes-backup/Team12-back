@@ -1,1 +1,14 @@
-[{"id":1,"name":"Rebecca","lastname":"Anthony","dni":"1692041022199","age":43,"email":"non.egestas@ipsumSuspendissenon.ca","password":"tempor","phone":"1-382-641-6650","address":"P.O. Box 871, 9499 Leo, Rd.","city_id":17}]
+[
+    {
+        "id": 1,
+        "name": "Rebecca",
+        "lastname": "Anthony",
+        "dni": "1692041022199",
+        "age": 43,
+        "email": "non.egestas@ipsumSuspendissenon.ca",
+        "password": "tempor",
+        "phone": "1-382-641-6650",
+        "address": "P.O. Box 871, 9499 Leo, Rd.",
+        "city_id": 17
+    }
+]
