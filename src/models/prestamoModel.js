@@ -123,7 +123,7 @@ exports.fk_on_update = function(obj, prestamo) {
     for (var i = 0; i < users.length; i++) {
         for(var j=0; j < objects.length; j++){
             if(users[i].id==obj.userID && objects[j].id==obj.objectID && objects[j].seller_id == users[i]){
-                ans = (true && prestamo.userId== users[i].id) && prestamo.objectId== obj.userID;
+                ans = (true && prestamo.userId== users[i].id) && prestamo.objectId== obj.objectID;
                 break;
             }
         }
