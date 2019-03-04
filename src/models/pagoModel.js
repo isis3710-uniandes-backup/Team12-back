@@ -4,14 +4,14 @@ exports.createSchema = {
     id: Joi.number().required(),
     valor: Joi.number().required(),
     metodoPago: Joi.string().required(),
-    numTarjeta: Joi.number().integer().required(),
+    numTarjeta: Joi.string().required(),
     cvv: Joi.number().integer().required()
 };
 
 exports.updateSchema = {
     metodoPago: Joi.string().optional(),
     valor: Joi.number().optional(),
-    numTarjeta: Joi.number().integer().optional(),
+    numTarjeta: Joi.string().optional(),
     cvv: Joi.number().integer().optional()
 };
 

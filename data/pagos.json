@@ -1,1 +1,1 @@
-[{"id":1,"valor":100,"metodoPago":"Tarjeta de credito","numTarjeta":6159778124792500,"cvv":345}]
+[{"id":1,"valor":250,"metodoPago":"Tarjeta de credito","numTarjeta":"6235977812478250","cvv":367},{"id":2,"valor":270,"metodoPago":"Tarjeta de credito","numTarjeta":"6235977812478250","cvv":367}]

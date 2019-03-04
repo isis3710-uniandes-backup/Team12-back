@@ -21,7 +21,7 @@ exports.fk_on_create = function(ofertas, c) {
   for (let i = 0; i < users.length; i++) {
 
       if (users[i].id == ofertas.userID) {
-          return true;
+          return true && c.userId == ofertas.userID;
       }
   }
   return false;

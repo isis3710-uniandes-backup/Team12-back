@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "5a6328a8-28e6-4d8e-b418-452403743c61",
+		"name": "pruebasPagos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtener pago con id 1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n    \"valor\": 200,\n    \"metodoPago\": \"Tarjeta de credito\",\n    \"numTarjeta\": \"6535977812479250\",\n    \"cvv\": 365\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/pagos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pagos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los pagos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n    \"valor\": 200,\n    \"metodoPago\": \"Tarjeta de credito\",\n    \"numTarjeta\": \"6535977812479250\",\n    \"cvv\": 365\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/pagos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pagos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar el pago con id 1",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"valor\": 257,\n        \"metodoPago\": \"Tarjeta de credito\",\n        \"numTarjeta\": \"6435977812479750\",\n        \"cvv\": 399\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/pagos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pagos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar el pago con id 2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"valor\": 257,\n        \"metodoPago\": \"Tarjeta de credito\",\n        \"numTarjeta\": \"6435977812479750\",\n        \"cvv\": 399\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/pagos/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pagos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un nuevo pago",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bb60d916-aa88-4415-9dd3-aab21ac9a1d6",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 2,\n        \"valor\": 270,\n        \"metodoPago\": \"Tarjeta de credito\",\n        \"numTarjeta\": \"6235977812478250\",\n        \"cvv\": 367\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:3000/pagos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pagos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -33,11 +33,17 @@ exports.fk_on_list_all = function(obj) {
     var data2 = fs.readFileSync(file2, 'utf8');
     var objects = JSON.parse(data2);
 
+    var usuarioOk=false;
     for (var i = 0; i < users.length; i++) {
-        for(var j=0; j < objects.length; j++){
-            if(users[i].id==obj.userID && objects[j].id==obj.objectID && objects[j].seller_id == users[i]){
-                return true;
-            }
+        if(users[i].id==obj.userID){
+            usuarioOk=true;
+            break;
+        }
+        return false;
+    }
+    for(var j=0; j < objects.length; j++){
+        if(objects[j].id==obj.userID){
+            return objects[j].seller_id == obj.userID;
         }
     }
     
@@ -60,13 +66,20 @@ exports.fk_on_create = function(obj, prestamo) {
     var objects = JSON.parse(data);
     
     var ans = false;
+    var usuarioOk=false;
     for (var i = 0; i < users.length; i++) {
-        for(var j=0; j < objects.length; j++){
-            if(user[i].id==obj.userID && objects[j].id==obj.objectID && objects[j].seller_id == users[i]){
-                ans = (true && prestamo.userId== users[i].id) && prestamo.objectId== obj.userID;
-            }
+        if(users[i].id==obj.userID){
+            usuarioOk=true;
+            break;
+        }
+        return false;
+    }
+    for(var j=0; j < objects.length; j++){
+        if(objects[j].id==obj.userID && objects[j].seller_id == obj.userID){
+            ans = (true && prestamo.userId== users[i].id) && prestamo.objectId== obj.userID;
         }
     }
+    
     return ans;
 }
 
@@ -80,14 +93,20 @@ exports.fk_on_read_one = function(obj, prestamo) {
     var objects = JSON.parse(data);
     
     var ans = false;
+    var usuarioOk=false;
     for (var i = 0; i < users.length; i++) {
-        for(var j=0; j < objects.length; j++){
-            if(user[i].id==obj.userID && objects[j].id==obj.objectID && objects[j].seller_id == users[i]){
-                ans = (true && prestamo.userId== users[i].id) && prestamo.objectId== obj.userID;
-                break;
-            }
+        if(users[i].id==obj.userID){
+            usuarioOk=true;
+            break;
+        }
+        return false;
+    }
+    for(var j=0; j < objects.length; j++){
+        if(objects[j].id==obj.userID && objects[j].seller_id == obj.userID){
+            ans = (true && prestamo.userId== users[i].id) && prestamo.objectId== obj.userID;
         }
     }
+    
     return ans;
 }
 
@@ -122,13 +141,19 @@ exports.fk_on_delete = function(obj, service) {
     var objects = JSON.parse(data);
     
     var ans = false;
+    var usuarioOk=false;
     for (var i = 0; i < users.length; i++) {
-        for(var j=0; j < objects.length; j++){
-            if(user[i].id==obj.userID && objects[j].id==obj.objectID && objects[j].seller_id == users[i]){
-                ans = (true && prestamo.userId== users[i].id) && prestamo.objectId== obj.userID;
-                break;
-            }
+        if(users[i].id==obj.userID){
+            usuarioOk=true;
+            break;
+        }
+        return false;
+    }
+    for(var j=0; j < objects.length; j++){
+        if(objects[j].id==obj.userID && objects[j].seller_id == obj.userID){
+            ans = (true && prestamo.userId== users[i].id) && prestamo.objectId== obj.userID;
         }
     }
-    return ans;   
+    
+    return ans;
 }
