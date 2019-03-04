@@ -1,1 +1,16 @@
-[{"id":2,"seller_id":1,"name":"lacus.","description":"Lorem ipsum","price":414835},{"id":1,"seller_id":1,"name":"Etiam Etiam","description":"Lorem ipsum dolor","price":1500000}]
+[
+    {
+        "id": 2,
+        "seller_id": 1,
+        "name": "lacus.",
+        "description": "Lorem ipsum",
+        "price": 414835
+    },
+    {
+        "id": 1,
+        "seller_id": 1,
+        "name": "Etiam Etiam",
+        "description": "Lorem ipsum dolor",
+        "price": 1500000
+    }
+]

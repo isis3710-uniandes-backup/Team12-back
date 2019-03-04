@@ -27,6 +27,6 @@ subcategorias(app);
 reset(app);
 //app.use('/objetos', objetos)
 
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 8082;
 
 app.listen(port, () => {console.log('Server is up and running on port number ' + port);});

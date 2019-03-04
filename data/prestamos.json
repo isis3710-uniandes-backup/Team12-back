@@ -6,29 +6,5 @@
 		"userId":1,
 		"startDate": "05/03/2018",
 		"endDate": "14/11/2019"
-	},
-	{
-		"id": 2,
-		"paymentId": 2,
-		"objectId": 2,
-		"userId":2,
-		"startDate": "18/06/2018",
-		"endDate": "17/02/2019"
-	},
-	{
-		"id": 3,
-		"paymentId": 3,
-		"objectId": 3,
-		"userId":3,
-		"startDate": "13/10/2018",
-		"endDate": "27/05/2019"
-	},
-	{
-		"id": 4,
-		"paymentId": 4,
-		"objectId": 4,
-		"userId":4,
-		"startDate": "04/11/2018",
-		"endDate": "18/02/2019"
 	}
 ]

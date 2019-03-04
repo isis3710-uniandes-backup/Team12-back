@@ -2,71 +2,8 @@
 	{
 		"id": 1,
 		"valor": 100,
-		"prestamoId": 1,
-		"metodoPago": "eget",
-		"numTarjeta": 615977812479250
-	},
-	{
-		"id": 2,
-		"valor": 101,
-		"prestamoId": 2,
-		"metodoPago": "Quisque",
-		"numTarjeta": 194197914851829
-	},
-	{
-		"id": 3,
-		"valor": 102,
-		"prestamoId": 3,
-		"metodoPago": "convallis",
-		"numTarjeta": 72451813658699
-	},
-	{
-		"id": 4,
-		"valor": 103,
-		"prestamoId": 4,
-		"metodoPago": "tincidunt",
-		"numTarjeta": 422249648952856
-	},
-	{
-		"id": 5,
-		"valor": 104,
-		"prestamoId": 5,
-		"metodoPago": "faucibus",
-		"numTarjeta": 865906321024522
-	},
-	{
-		"id": 6,
-		"valor": 105,
-		"prestamoId": 6,
-		"metodoPago": "vel",
-		"numTarjeta": 274906769394874
-	},
-	{
-		"id": 7,
-		"valor": 106,
-		"prestamoId": 7,
-		"metodoPago": "ligula.",
-		"numTarjeta": 492296386924572
-	},
-	{
-		"id": 8,
-		"valor": 107,
-		"prestamoId": 8,
-		"metodoPago": "porta",
-		"numTarjeta": 853590593133121
-	},
-	{
-		"id": 9,
-		"valor": 108,
-		"prestamoId": 9,
-		"metodoPago": "nisl.",
-		"numTarjeta": 590825026333332
-	},
-	{
-		"id": 10,
-		"valor": 109,
-		"prestamoId": 10,
-		"metodoPago": "Nunc",
-		"numTarjeta": 645999689889140
+		"metodoPago": "Tarjeta de credito",
+		"numTarjeta": 6159778124792500,
+		"cvv": 333
 	}
 ]

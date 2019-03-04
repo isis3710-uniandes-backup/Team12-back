@@ -1,14 +1,14 @@
 const Controller = require('../controllers/subresourcesController');
 
 module.exports = function(app) {
-	var c = new Controller(require('../models/prestamoModel'), './data/prestamos.json', 'prestamoID');
+	var c = new Controller(require('../models/prestamoModel'), './data/prestamos.json', ['userID','objectID', 'prestamoID'],['userId', 'objectId']);
 
    	app.route('/users/:userID/objetos/:objectID/prestamos')
         .get(function(req, res)  {
 		    c.list_all(req, res);
 		})
         .post(function(req, res)  {
-		    c.create(req, res);
+		    c.create(req, res); 
 		});
 
 

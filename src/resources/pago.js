@@ -1,18 +1,18 @@
-const Controller = require('../controllers/subresourcesController');
+const Controller = require('../controllers/resourcesController');
 
 module.exports = function(app) {
 	var c = new Controller(require('../models/pagoModel'), './data/pagos.json', 'pagoID');
-
-   	app.route('/users/:userID/objetos/:objetoID/prestamos/:prestamoID/payments')
+    
+   	app.route('/pagos')
         .get(function(req, res)  {
 		    c.list_all(req, res);
 		})
         .post(function(req, res)  {
-		    c.create(req, res);
+		    c.create(req, res); 
 		});
 
 
-    app.route('/users/:userID/objetos/:objetoID/prestamos/:prestamoID/payments/:paymentID')
+    app.route('/pagos/:pagoID')
         .get(function(req, res)  {
 		    c.read_one(req, res);
 		})

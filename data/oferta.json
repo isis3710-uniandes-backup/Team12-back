@@ -1,0 +1,8 @@
+[
+    {
+        "id": 1,
+        "name": "Descuento herramientas",
+        "userId":1,
+        "objetosId": [1]
+    }
+]
