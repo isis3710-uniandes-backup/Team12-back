@@ -1,1 +1,15 @@
-[{"id":1,"name":"Llaves mecánicas","category_id":1}]
+[
+    {"id":"1","name":"Llaves mecánicas","category_id":"1"},
+    {"id":"2","name":"Taladros y brocas","category_id":"1"},
+    {"id":"3","name":"Sierras y cortadoras","category_id":"1"},
+    {"id":"4","name":"Protoboards","category_id":"2"},
+    {"id":"5","name":"Dispositivos de medida","category_id":"2"},
+    {"id":"6","name":"Instrumentos de cuerda","category_id":"6"},
+    {"id":"7","name":"Percusión","category_id":"6"},
+    {"id":"8","name":"Accesorios","category_id":"6"},
+    {"id":"9","name":"Instrumentos eléctricos","category_id":"6"},
+    {"id":"10","name":"Videojuegos","category_id":"3"},
+    {"id":"11","name":"Proyectores de audio y video","category_id":"3"},
+    {"id":"12","name":"Materiales","category_id":"4"},
+    {"id":"13","name":"Equipamiento de seguridad","category_id":"4"}
+]

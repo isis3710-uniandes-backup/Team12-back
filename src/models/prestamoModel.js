@@ -4,19 +4,19 @@ const Joi = BaseJoi.extend(Extension);
 const fs = require('fs');
 
 exports.createSchema = {
-    id: Joi.number().integer().required(),
-    paymentId: Joi.number().integer().required(),
-    userId: Joi.number().integer().required(),
-    objectId: Joi.number().integer().required(),
+    id: Joi.string().required(),
+    paymentId: Joi.string().required(),
+    userId: Joi.string().required(),
+    objectId: Joi.string().required(),
     startDate: Joi.string().required(),
     endDate: Joi.string().required()
 };
  
 exports.updateSchema = {
     name: Joi.string().optional(),
-    paymentId: Joi.number().integer().optional(),
-    userId: Joi.number().integer().optional(),
-    objectId: Joi.number().integer().optional(),
+    paymentId: Joi.string().optional(),
+    userId: Joi.string().optional(),
+    objectId: Joi.string().optional(),
     startDate: Joi.string().optional(),
     endDate: Joi.string().optional()
 

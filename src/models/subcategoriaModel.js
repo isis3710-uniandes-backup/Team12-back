@@ -2,9 +2,9 @@ const joi = require('joi');
 const fs = require('fs');
 
 exports.createSchema = {
-    id: joi.number().required(),
+    id: joi.string().required(),
     name: joi.string().required(),
-    category_id: joi.number().required()
+    category_id: joi.string().required()
 };
 
 exports.updateSchema = {

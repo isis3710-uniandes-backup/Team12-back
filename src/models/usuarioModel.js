@@ -2,7 +2,7 @@ const Joi = require('joi');
 const fs = require('fs');
 
 exports.createSchema = {
-    id: Joi.number().required(),
+    id: Joi.string().required(),
     name: Joi.string().required(),
     lastname: Joi.string().required(),
     dni: Joi.string().required(),
@@ -11,7 +11,7 @@ exports.createSchema = {
     password: Joi.string().required(),
     phone: Joi.string().required(),
     address: Joi.string().required(),
-    city_id: Joi.number().required()
+    city_id: Joi.string().required()
 };
 
 exports.updateSchema = {
@@ -23,7 +23,7 @@ exports.updateSchema = {
     password: Joi.string().optional(),
     phone: Joi.string().optional(),
     address: Joi.string().optional(),
-    city_id: Joi.number().optional()
+    city_id: Joi.string().optional()
 };
 
 /*

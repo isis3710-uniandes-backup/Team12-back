@@ -1,5 +1,6 @@
 const fs = require('fs');
 const Joi = require('joi');
+const uuidv4 = require('uuid/v4');
 
 class resourcesController {
     constructor(pModel, pFile, pResourceID) {
@@ -62,6 +63,7 @@ class resourcesController {
                 res.status(400).send();
                 return;
             }
+            req.body.id = uuidv4();
             for (var i = 0; i < resources.length; i++) {
                 if (resources[i].id == req.body.id) {
                     resource = true;

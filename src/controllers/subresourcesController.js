@@ -1,5 +1,7 @@
 const fs = require('fs');
 const Joi = require('joi');
+const uuidv4 = require('uuid/v4');
+
 
 class subresourcesController {
     constructor(pModel, pFile, pResourceID, pParentID) {
@@ -72,6 +74,7 @@ class subresourcesController {
         o no. Sin embargo, es necesario comprobar la existencia del objeto. Por tanto, se plantea una función
         dentro del modelo que verificará la existencia de estas llaves foraneas para cada objeto.
         */
+       req.body.id = uuidv4();
         fs.readFile(this.file, 'utf8', (err, data) => {
             if (err) {
                 throw err;

@@ -1,4 +1,5 @@
 const Controller = require('../controllers/resourcesController');
+const UUID = require('')
 
 module.exports = function(app) {
 	var c = new Controller(require('../models/usuarioModel'), './data/usuarios.json', 'userID');
@@ -9,6 +10,7 @@ module.exports = function(app) {
 		    c.list_all(req, res);
 		})
         .post(function(req, res)  {
+
 		    c.create(req, res);
 		});
 

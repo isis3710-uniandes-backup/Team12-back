@@ -2,8 +2,8 @@ const Joi = require("joi");
 const fs = require('fs');
 
 exports.createSchema = {
-    id: Joi.number().required(),
-    seller_id: Joi.number().required(),
+    id: Joi.string().required(),
+    seller_id: Joi.string().required(),
     name: Joi.string().required(),
     description: Joi.string().required(),
     price: Joi.number().required()

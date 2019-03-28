@@ -1,7 +1,7 @@
 const joi = require('joi');
 
 exports.createSchema = {
-    id: joi.number().required(),
+    id: joi.string().required(),
     name: joi.string().required()
 };
 

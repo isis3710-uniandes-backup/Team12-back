@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 exports.createSchema = {
-    id: Joi.number().required(),
+    id: Joi.string().required(),
     valor: Joi.number().required(),
     metodoPago: Joi.string().required(),
     numTarjeta: Joi.string().required(),

@@ -2,18 +2,18 @@ const joi = require('joi');
 const fs = require('fs');
 
 exports.createSchema = {
-    id: joi.number().required(),
+    id: joi.string().required(),
     precioAnterior: joi.number().integer().required(),
     porcentajeDescuento: joi.number().required(),
-    userId: joi.number().required(),
-    objetosId: joi.array().items(joi.number()).required()
+    userId: joi.string().required(),
+    objetosId: joi.array().items(joi.string()).required()
 };
 
 exports.updateSchema = {
     precioAnterior: joi.number().integer().required(),
     porcentajeDescuento: joi.number().required(),
-    userId: joi.number().optional(),
-    objetosId: joi.array().items(joi.number()).optional()
+    userId: joi.string().optional(),
+    objetosId: joi.array().items(joi.string()).optional()
 };
 
 exports.fk_on_create = function(ofertas, c) {

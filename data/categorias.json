@@ -1,1 +1,8 @@
-[{"id":1,"name":"Herramientas"}]
+[
+    {"id":"1","name":"Herramientas"},
+    {"id":"2","name":"Componentes electronicos"},
+    {"id":"3","name":"Tecnologia"},
+    {"id":"4","name":"Construccion"},
+    {"id":"5","name":"Limpieza"},
+    {"id":"6","name":"Instrumentos musicales"}
+]

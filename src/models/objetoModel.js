@@ -2,14 +2,14 @@ const joi = require("joi");
 const fs = require("fs");
 
 const objectSchema = {
-    id: joi.number().positive().integer().required(),
+    id: joi.string().required(),
     name: joi.string().required(),
     price: joi.number().required(),
     rating: joi.number().min(0).max(10).optional(),
-    seller_id: joi.number().required(),
+    seller_id: joi.string().required(),
     description: joi.string().required(),
-    category_id: joi.number().integer().optional(),
-    subcategory_id: joi.number().integer().optional(),
+    category_id: joi.string().optional(),
+    subcategory_id: joi.string().optional(),
     available: joi.boolean().required()
 };
 const updateSchema = {
@@ -17,8 +17,8 @@ const updateSchema = {
     price: joi.number().optional(),
     rating: joi.number().min(0).max(10).optional(),
     description: joi.string().optional(),
-    category_id: joi.number().integer().optional(),
-    subcategory_id: joi.number().integer().optional(),
+    category_id: joi.string().optional(),
+    subcategory_id: joi.string().optional(),
     available: joi.boolean().optional()
 };
 

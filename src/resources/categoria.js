@@ -4,7 +4,15 @@ module.exports = function(app) {
 	var c = new Controller(require('../models/categoriaModel'), './data/categorias.json', 'categoriaID');
     // users Routes
     app.route('/categories')
-        .get((req,res)=>{c.list_all(req,res)})
+        .get((req,res)=>{
+           var a= c.list_all(req,res)
+           console.log(a)
+           for (const key in a) {
+               if (a) {
+                   
+               }
+           }
+        })
         .post((req,res)=>{c.create(req,res)});
 
 
