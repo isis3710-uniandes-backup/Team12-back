@@ -1,4 +1,7 @@
 const fs = require('fs');
+var bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const {secretToken} = require('../../config');
 
 class loginController {
     constructor(pFile) {
@@ -22,13 +25,30 @@ class loginController {
             var resource = null;
             const { email, password } = req.body;
             for (var i = 0; i < resources.length; i++) {
-                if (resources[i].email == email && resources[i].password == password) {
+                if (resources[i].email == email) {
                     resource = resources[i];
                     break;
                 }
             }
             if (resource) {
-                res.status(200).json(resource);
+                bcrypt.compare(password, resource.password, function(err, result) {
+                    if (result) {
+                        console.log("Valid!");
+                        let token = jwt.sign({ email: req.body.email }, secretToken, { expiresIn: 129600 }); // Signing the token
+                        res.status(200).json({
+                            sucess: true,
+                            data: resource,
+                            token
+                        });
+                    } else {
+                        console.log("Entered Password and Hash do not match!");
+                        res.status(401).json({
+                            sucess: false,
+                            token: null,
+                            err: 'Entered Password and Hash do not match!'
+                        });
+                    }
+                });
             } else {
                 res.status(404).send('No se encuentra el recurso especificado');
             }
