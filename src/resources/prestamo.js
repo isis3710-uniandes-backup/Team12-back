@@ -1,10 +1,11 @@
 const Controller = require('../controllers/subresourcesController');
+const jwtMW = require('../../config');
 
 module.exports = function(app) {
 	var c = new Controller(require('../models/prestamoModel'), './data/prestamos.json', ['userID','objectID', 'prestamoID'],'objectId');
 
    	app.route('/users/:userID/objetos/:objectID/prestamos')
-        .get(function(req, res)  {
+        .get(jwtMW, function(req, res)  {
 		    c.list_all(req, res);
 		})
         .post(function(req, res)  {
@@ -13,7 +14,7 @@ module.exports = function(app) {
 
 
     app.route('/users/:userID/objetos/:objectID/prestamos/:prestamoID')
-        .get(function(req, res)  {
+        .get(jwtMW, function(req, res)  {
 		    c.read_one(req, res);
 		})
         .put(function(req, res)  {
