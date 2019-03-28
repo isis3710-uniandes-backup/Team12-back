@@ -1,4 +1,7 @@
 const Controller = require('../controllers/resourcesController');
+var bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const exjwt = require('express-jwt');
 
 module.exports = function(app) {
 	var c = new Controller(require('../models/ciudadModel'), './data/ciudades.json', 'cityID');
