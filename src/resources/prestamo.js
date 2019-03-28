@@ -13,8 +13,8 @@ module.exports = function(app) {
 		});
 
 
-    app.route('/users/:userID/prestamos/:prestamoID')
-        .get(jwtMW, function(req, res)  {
+    app.route('/users/:userID/prestamos/:prestamoID',jwtMW)
+        .get(function(req, res)  {
 		    c.read_one(req, res);
 		})
         .put(function(req, res)  {
