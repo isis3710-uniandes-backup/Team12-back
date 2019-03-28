@@ -74,11 +74,11 @@ class subresourcesController {
         o no. Sin embargo, es necesario comprobar la existencia del objeto. Por tanto, se plantea una función
         dentro del modelo que verificará la existencia de estas llaves foraneas para cada objeto.
         */
-       req.body.id = uuidv4();
         fs.readFile(this.file, 'utf8', (err, data) => {
             if (err) {
                 throw err;
             }
+            req.body.id = uuidv4();
             var resources = JSON.parse(data);
             var resource = false;
             var result = Joi.validate(req.body, this.model.createSchema);
