@@ -13,6 +13,7 @@ const subcategorias = require('./resources/subcategoria.js');
 const users = require('./resources/usuario.js');
 const reset = require('./resources/reset.js');
 const login = require('./resources/login.js');
+const signup = require('./resources/signup.js');
 //app initialization
 const app = express();
 var cors = require('cors')
@@ -48,6 +49,7 @@ prestamos(app);
 ofertas(app);
 reset(app);
 login(app);
+signup(app);
 //app.use('/objetos', objetos)
 
 let port = process.env.PORT || 3001;

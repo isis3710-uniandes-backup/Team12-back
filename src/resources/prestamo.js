@@ -9,11 +9,11 @@ module.exports = function(app) {
 		    c.list_all(req, res);
 		})
         .post(function(req, res)  {
-		    c.create(req, res); 
+		    c.create(req, res);
 		});
 
 
-    app.route('/users/:userID/objetos/:objectID/prestamos/:prestamoID', jwtMW)
+    app.route('/users/:userID/prestamos/:prestamoID',jwtMW)
         .get(function(req, res)  {
 		    c.read_one(req, res);
 		})

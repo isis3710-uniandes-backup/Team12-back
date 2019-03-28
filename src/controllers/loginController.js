@@ -34,7 +34,7 @@ class loginController {
                 bcrypt.compare(password, resource.password, function(err, result) {
                     if (result) {
                         console.log("Valid!");
-                        let token = jwt.sign({ email: req.body.email }, secretToken, { expiresIn: 129600 }); // Signing the token
+                        let token = jwt.sign({ email: req.body.email }, 'keyboard cat 4 ever', { expiresIn: 129600 }); // Signing the token
                         res.status(200).json({
                             sucess: true,
                             data: resource,

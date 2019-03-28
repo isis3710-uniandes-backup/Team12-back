@@ -1,14 +1,14 @@
 const fs = require('fs');
-const { secretToken } = require('../config');
 var bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Joi = require('joi');
+const uuidv4 = require('uuid/v4');
+const { secretToken } = require('../config');
 
-class loginController {
-    constructor(pModel, pFile, pResourceID) {
+class signupController {
+    constructor(pModel, pFile) {
         this.model = pModel;
         this.file = pFile;
-        this.resourceID = pResourceID;
     }
 
     get model() {
@@ -19,10 +19,6 @@ class loginController {
         return this._file;
     }
 
-    get resourceID() {
-        return this._resourceID;
-    }
-
     set model(model) {
         this._model = model;
     }
@@ -31,15 +27,12 @@ class loginController {
         this._file = file;;
     }
 
-    set resourceID(resourceID) {
-        this._resourceID = resourceID;
-    }
-
     signup(req, res) {
         fs.readFile(this.file, 'utf8', (err, data) => {
             if (err) {
                 throw err;
             }
+            req.body.id = uuidv4();
             var resources = JSON.parse(data);
             var resource = false;
             var result = Joi.validate(req.body, this.model.createSchema);
@@ -63,11 +56,11 @@ class loginController {
                 bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
                     req.body.password = hash;
                     resources.push(req.body);
-                    fs.writeFile(this.file, JSON.stringify(resources), (err) => {
+                    fs.writeFile('./data/usuarios.json', JSON.stringify(resources), (err) => {
                         if (err) {
                             throw err;
                         }
-                        let token = jwt.sign({ email: req.body.email }, secretToken, { expiresIn: 129600 }); // Signing the token
+                        let token = jwt.sign({ email: req.body.email }, 'keyboard cat 4 ever', { expiresIn: 129600 }); // Signing the token
                         res.status(200).json({
                             sucess: true,
                             data: req.body,
@@ -81,4 +74,4 @@ class loginController {
     }
 }
 
-module.exports = loginController;
+module.exports = signupController;

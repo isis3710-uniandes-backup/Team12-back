@@ -52,6 +52,7 @@ class resourcesController {
             if (err) {
                 throw err;
             }
+            req.body.id = uuidv4();
             var resources = JSON.parse(data);
             var resource = false;
             var result = Joi.validate(req.body, this.model.createSchema);
@@ -60,7 +61,6 @@ class resourcesController {
                 res.status(400).send();
                 return;
             }
-            req.body.id = uuidv4();
             for (var i = 0; i < resources.length; i++) {
                 if (resources[i].id == req.body.id) {
                     resource = true;
