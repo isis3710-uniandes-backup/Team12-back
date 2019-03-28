@@ -1,4 +1,5 @@
 const Controller = require('../controllers/resourcesController');
+const fs = require('fs')
 
 module.exports = function(app) {
 	var c = new Controller(require('../models/categoriaModel'), './data/categorias.json', 'categoriaID');
@@ -11,7 +12,8 @@ module.exports = function(app) {
                 }
                 data = JSON.parse(data);
                 var categorias={};
-                for (const cat in data) {
+
+                for (const cat of data) {
                     categorias[cat.id] = cat;
                     categorias[cat.id].subcategories = [];
                 }
@@ -20,10 +22,10 @@ module.exports = function(app) {
                         throw err;
                     }
                     subcategories = JSON.parse(subcategories)
-                    for (const subcat in subcategories) {
-                        categorias[subcat.category_id].push(subcat);
+                    for (const subcat of subcategories) {
+                        categorias[subcat.category_id].subcategories.push(subcat);
                     }    
-                    res.status(200).json(categorias.values());
+                    res.status(200).json(categorias);
                 });
             });
            
