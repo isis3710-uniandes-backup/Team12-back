@@ -1,16 +1,1 @@
-[
-    {
-        "id": 1,
-        "valor": 100,
-        "metodoPago": "Tarjeta de credito",
-        "numTarjeta": "6159778124792500",
-        "cvv": 345
-    },
-    {
-        "id": 2,
-        "valor": 200,
-        "metodoPago": "Tarjeta de credito",
-        "numTarjeta": "6535977812479250",
-        "cvv": 365
-    }
-]
+[{"id":"1","userId":"b1d308ad-5770-4d13-ac1e-8c8fc107dad4","prestamoId":"1","valor":100,"metodoPago":"Tarjeta de credito","numTarjeta":"6159778124792500","cvv":345},{"id":"2","userId":"b1d308ad-5770-4d13-ac1e-8c8fc107dad4","prestamoId":"2","valor":200,"metodoPago":"Tarjeta de credito","numTarjeta":"6535977812479250","cvv":365}]
