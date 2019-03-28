@@ -5,16 +5,38 @@
         "price": 10000,
         "seller_id": "1",
         "description": "Taladro inalámbrico de broca específica",
-        "category_id": "0",
+        "category_id": "1",
+        "subcategory_id":"2",
         "available": true
     },
     {
         "id": "2",
-        "name": "Taladro",
+        "name": "Cortadora de cerámica",
         "price": 10000,
         "seller_id": "1",
-        "description": "Taladro inalámbrico de broca específica",
-        "category_id": "0",
+        "description": "Instrumento electrico para cortar productos de cerámica. Tabla y fuente incluidas",
+        "category_id": "1",
+        "subcategory_id":"3",
+        "available": true
+    },
+    {
+        "id": "3",
+        "name": "Osciloscopio",
+        "price": 10000,
+        "seller_id": "1",
+        "description": "Un osciloscopio es un instrumento de visualización electrónico para la representación gráfica de señales eléctricas que pueden variar en el tiempo. Es muy usado en electrónica de señal, frecuentemente junto a un analizador de espectro. Presenta los valores de las señales eléctricas en forma de coordenadas en una pantalla, en la que normalmente el eje X (horizontal) representa tiempos y el eje Y (vertical) representa tensiones. La imagen así obtenida se denomina oscilograma. Suelen incluir otra entrada, llamada eje THRASHER o Cilindro de Wehnel que controla la luminosidad del haz, permitiendo resaltar o apagar algunos segmentos de la traza. ",
+        "category_id": "2",
+        "subcategory_id":"5",
+        "available": true
+    },
+    {
+        "id": "4",
+        "name": "Xbox accesorio Kinect + juegos",
+        "price": 10000,
+        "seller_id": "1",
+        "description": "Dispositivo auxiliar de la consola xbox que permite al usuario jugar de forma interactiva",
+        "category_id": "3",
+        "subcategory_id":"10",
         "available": true
     }
 ]
