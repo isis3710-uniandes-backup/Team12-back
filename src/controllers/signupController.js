@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { secretToken } = require('../../config');
+const { secretToken } = require('../config');
 var bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Joi = require('joi');

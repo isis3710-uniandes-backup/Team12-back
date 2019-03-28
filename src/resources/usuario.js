@@ -1,5 +1,4 @@
 const Controller = require('../controllers/resourcesController');
-const UUID = require('')
 
 module.exports = function(app) {
 	var c = new Controller(require('../models/usuarioModel'), './data/usuarios.json', 'userID');
