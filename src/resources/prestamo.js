@@ -13,7 +13,7 @@ module.exports = function(app) {
 		});
 
 
-    app.route('/users/:userID/objetos/:objectID/prestamos/:prestamoID')
+    app.route('/users/:userID/prestamos/:prestamoID')
         .get(jwtMW, function(req, res)  {
 		    c.read_one(req, res);
 		})

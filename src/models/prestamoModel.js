@@ -28,25 +28,26 @@ exports.fk_on_list_all = function(obj) {
     var file = './data/usuarios.json';
     var data = fs.readFileSync(file, 'utf8');
     var users = JSON.parse(data);
-
+/*
     var file2 = './data/objetos.json';
     var data2 = fs.readFileSync(file2, 'utf8');
     var objects = JSON.parse(data2);
-
+*/
     var usuarioOk=false;
     for (var i = 0; i < users.length; i++) {
         if(users[i].id==obj.userID){
             usuarioOk=true;
             break;
         }
-        return false;
+        return usuarioOk;
     }
+    /*
     for(var j=0; j < objects.length; j++){
         if(objects[j].id==obj.userID){
             return objects[j].seller_id == obj.userID;
         }
     }
-    
+    */
     return false;
 }
 
@@ -163,3 +164,18 @@ exports.fk_on_delete = function(obj, prestamo) {
     
     return ans;
 }
+/*
+exports.prestamosUsuario = function(user_id){
+    var file= './data/prestamos.json';
+    var data= fs. readFileSync(file, 'utf8');
+    var prestamos = JSON.parse(data);
+
+    var presUser=[];
+
+    for(var i=0; i < prestamos.length; i++){
+        if(prestamos[i].userId==user_id){
+            presUser.push(prestamos[i]);
+        }
+    }
+}
+*/
