@@ -38,9 +38,6 @@ class resourcesController {
             if (err) {
                 throw err;
             }
-            if (req.body.fetchall) {
-                
-            }
             res.status(200).json(JSON.parse(data));
         });
     }
