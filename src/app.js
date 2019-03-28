@@ -15,9 +15,6 @@ const reset = require('./resources/reset.js');
 const login = require('./resources/login.js');
 //app initialization
 const app = express();
-var bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const exjwt = require('express-jwt');
 var cors = require('cors')
 
 app.use(bodyParser.json());
