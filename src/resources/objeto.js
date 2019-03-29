@@ -3,23 +3,20 @@ const Controller = require('../controllers/subresourcesController');
 module.exports = function(app) {
 	var c = new Controller(require('../models/objetoModel'), './data/objetos.json', ['userID', 'objectID'], 'seller_id');
 
-    // services Routes
-    app.route('/users/:userID/objetos')
-        .get(function(req, res)  {
-		    c.list_all(req, res);
-		})
-        .post(function(req, res)  {
-		    c.create(req, res);
-		});
-
-    app.route('/users/:userID/objetos/:objectID')
-        .get(function(req, res)  {
-		    c.read_one(req, res);
-		})
-        .put(function(req, res)  {
-		    c.update_one(req, res);
-		})
-        .delete(function(req, res)  {
-		    c.delete_one(req, res);
-		});
+	app.get('/users/:userID/objetos',function(req, res)  {
+		c.list_all(req, res);
+	})
+	app.post('/users/:userID/objetos',function(req, res)  {
+		c.create(req, res);
+	})
+	app.get('/users/:userID/objetos/:objectID',function(req, res)  {
+		c.read_one(req, res);
+	})
+	app.put('/users/:userID/objetos/:objectID',function(req, res)  {
+		c.update_one(req, res);
+	})
+	app.delete('/users/:userID/objetos/:objectID',function(req, res)  {
+		c.delete_one(req, res);
+	})
+    
 };
