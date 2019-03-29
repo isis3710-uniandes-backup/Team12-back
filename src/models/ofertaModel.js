@@ -3,6 +3,8 @@ const fs = require('fs');
 
 exports.createSchema = {
     id: joi.string().required(),
+    nombre:joi.string().required(),
+    img: joi.string().required(),
     precioAnterior: joi.number().integer().required(),
     porcentajeDescuento: joi.number().required(),
     userId: joi.string().required(),
@@ -10,6 +12,7 @@ exports.createSchema = {
 };
 
 exports.updateSchema = {
+    nombre: string().optional(),
     precioAnterior: joi.number().integer().required(),
     porcentajeDescuento: joi.number().required(),
     userId: joi.string().optional(),
