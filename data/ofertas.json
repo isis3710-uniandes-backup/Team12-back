@@ -1,16 +1,16 @@
 [{
-    "id": "1",
-    "nombre": "Televisor 32",
-    "img": "./img/1.png",
-    "precioAnterior": 1000000,
-    "porcentajeDescuento": "20",
-    "userId": "5f484907-5b65-46cb-a0a4-464956ec9915",
-    "objetosId": [1, 2]
-}, {
     "id": "2",
     "nombre": "iPad mini",
-    "img": "./img/2.png",
+    "img": "https://s3.amazonaws.com/peoplepng/wp-content/uploads/2018/07/08143426/iPad-Pro-PNG-Photos.png",
     "precioAnterior": 1200000,
+    "porcentajeDescuento": "23",
+    "userId": "5f484907-5b65-46cb-a0a4-464956ec9915",
+    "objetosId": [3, 2]
+},{
+    "id": "1",
+    "nombre": "Televisor 32",
+    "img": "https://www.npgtech.com/images/productos/televisores/200EL24F/200EL24F_FRONTAL.jpg",
+    "precioAnterior": 1000000,
     "porcentajeDescuento": "23",
     "userId": "5f484907-5b65-46cb-a0a4-464956ec9915",
     "objetosId": [3, 2]
