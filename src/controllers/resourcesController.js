@@ -139,7 +139,7 @@ class resourcesController {
                     if (err) {
                         throw err;
                     }
-                    res.status(200).send();
+                    res.status(200).send({});
                 });
             } else {
                 res.status(404).send('No existe el recurso especificado');
