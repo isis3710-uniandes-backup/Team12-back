@@ -3,7 +3,6 @@ var bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Joi = require('joi');
 const uuidv4 = require('uuid/v4');
-const { secretToken } = require('../config');
 
 class signupController {
     constructor(pModel, pFile) {

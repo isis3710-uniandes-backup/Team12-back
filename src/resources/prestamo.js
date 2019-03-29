@@ -1,5 +1,8 @@
 const Controller = require('../controllers/subresourcesController');
-const {jwtMW}= require('../config');
+const exjwt = require('express-jwt');
+const jwtMW = exjwt({
+  secret: 'keyboard cat 4 ever'
+});
 
 module.exports = function(app) {
 	var c = new Controller(require('../models/prestamoModel'), './data/prestamos.json', ['userID', 'prestamoID'],'objectId');
