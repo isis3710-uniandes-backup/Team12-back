@@ -12,9 +12,9 @@ exports.createSchema = {
 };
 
 exports.updateSchema = {
-    nombre: string().optional(),
-    precioAnterior: joi.number().integer().required(),
-    porcentajeDescuento: joi.number().required(),
+    nombre: joi.string().optional(),
+    precioAnterior: joi.number().integer().optional(),
+    porcentajeDescuento: joi.number().optional(),
     userId: joi.string().optional(),
     objetosId: joi.array().items(joi.string()).optional()
 };
