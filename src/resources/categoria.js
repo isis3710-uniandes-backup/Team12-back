@@ -11,7 +11,6 @@ module.exports = function(app) {
             }
             data = JSON.parse(data);
             var categorias={};
-
             for (const cat of data) {
                 categorias[cat.id] = cat;
                 categorias[cat.id].subcategories = [];
@@ -23,8 +22,8 @@ module.exports = function(app) {
                 subcategories = JSON.parse(subcategories)
                 for (const subcat of subcategories) {
                     categorias[subcat.category_id].subcategories.push(subcat);
-                }    
-                res.status(200).json(categorias);
+                }
+                res.status(200).json(Object.keys(categorias).map(k => categorias[k]));
             });
         });
     })
