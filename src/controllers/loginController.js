@@ -1,7 +1,6 @@
 const fs = require('fs');
 var bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const {secretToken} = require('../config');
 
 class loginController {
     constructor(pFile) {
