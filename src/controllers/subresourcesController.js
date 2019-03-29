@@ -186,7 +186,7 @@ class subresourcesController {
                     if (err) {
                         throw err;
                     }
-                    res.status(200).send('Se ha actualizado el recurso');
+                    res.status(200).send({});
                 });
             } else {
                 res.status(404).send('No se encontró el recurso especificado');
