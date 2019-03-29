@@ -1,7 +1,9 @@
-const Controller = require('../controllers/subresourcesController');
+const SubController = require('../controllers/subresourcesController');
+const Controller = require('../controllers/resourcesController');
 
 module.exports = function(app) {
-	var c = new Controller(require('../models/objetoModel'), './data/objetos.json', ['userID', 'objectID'], 'seller_id');
+	var c = new SubController(require('../models/objetoModel'), './data/objetos.json', ['userID', 'objectID'], 'seller_id');
+	var c = new Controller(require('../models/objetoModel'), './data/objetos.json', 'objectID');
 
 	app.get('/users/:userID/objetos',function(req, res)  {
 		c.list_all(req, res);
@@ -18,5 +20,8 @@ module.exports = function(app) {
 	app.delete('/users/:userID/objetos/:objectID',function(req, res)  {
 		c.delete_one(req, res);
 	})
+	app.get('/objetos',function(req, res)  {
+		c.list_all(req, res);
+	});
     
 };
