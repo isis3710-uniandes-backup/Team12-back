@@ -1,7 +1,7 @@
 [{
     "id": "1",
     "nombre": "Televisor 32",
-    "img": "1.png",
+    "img": "./img/1.png",
     "precioAnterior": 1000000,
     "porcentajeDescuento": "20",
     "userId": "5f484907-5b65-46cb-a0a4-464956ec9915",
@@ -9,7 +9,7 @@
 }, {
     "id": "2",
     "nombre": "iPad mini",
-    "img": "2.png",
+    "img": "./img/2.png",
     "precioAnterior": 1200000,
     "porcentajeDescuento": "23",
     "userId": "5f484907-5b65-46cb-a0a4-464956ec9915",
