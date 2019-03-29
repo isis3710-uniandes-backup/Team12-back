@@ -1,4 +1,5 @@
 const Controller = require('../controllers/subresourcesController');
+const fs = require('fs')
 
 module.exports = function(app) {
 	var c = new Controller(require('../models/subcategoriaModel'), './data/subcategorias.json', ['categoryID', 'subcategoryID'], 'category_id');
@@ -21,4 +22,22 @@ module.exports = function(app) {
 	})
     // services Routes
  
+	app.get('/objetos/subcategory/:subcategoryID',function(req, res)  {
+		fs.readFile('./data/objetos.json', 'utf8', (err, data) => {
+            if (err) {
+                throw err;
+			}
+			let respuesta = []
+			data = JSON.parse(data)
+			for (const obj of data) {
+			
+				console.log(obj)
+				if (obj.subcategory_id === req.params.subcategoryID){
+					respuesta.push(obj)
+				}
+			}
+			
+            res.status(200).json(respuesta);
+        });
+	});
 };
