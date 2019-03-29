@@ -4,7 +4,7 @@ const Joi = BaseJoi.extend(Extension);
 const fs = require('fs');
 
 exports.createSchema = { 
-    id: Joi.string().required(),
+    id: Joi.string().optional(),
     paymentId: Joi.string().required(),
     userId: Joi.string().required(),
     objectId: Joi.string().required(),
