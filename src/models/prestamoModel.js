@@ -3,7 +3,7 @@ const Extension = require('joi-date-extensions');
 const Joi = BaseJoi.extend(Extension);
 const fs = require('fs');
 
-exports.createSchema = {
+exports.createSchema = { 
     id: Joi.string().required(),
     paymentId: Joi.string().required(),
     userId: Joi.string().required(),
@@ -28,26 +28,13 @@ exports.fk_on_list_all = function(obj) {
     var file = './data/usuarios.json';
     var data = fs.readFileSync(file, 'utf8');
     var users = JSON.parse(data);
-/*
-    var file2 = './data/objetos.json';
-    var data2 = fs.readFileSync(file2, 'utf8');
-    var objects = JSON.parse(data2);
-*/
+
     var usuarioOk=false;
     for (var i = 0; i < users.length; i++) {
         if(users[i].id==obj.userID){
-            usuarioOk=true;
-            break;
-        }
-        return usuarioOk;
-    }
-    /*
-    for(var j=0; j < objects.length; j++){
-        if(objects[j].id==obj.userID){
-            return objects[j].seller_id == obj.userID;
+            return true;
         }
     }
-    */
     return false;
 }
 
@@ -66,49 +53,26 @@ exports.fk_on_create = function(obj, prestamo) {
     var data2 = fs.readFileSync(file2, 'utf8');
     var objects = JSON.parse(data2);
     
-    var ans = false;
-    var usuarioOk=false;
     for (var i = 0; i < users.length; i++) {
         if(users[i].id==obj.userID){
-            usuarioOk=true;
-            break;
-        }
-        return false;
-    }
-    for(var j=0; j < objects.length; j++){
-        if(objects[j].id==obj.userID && objects[j].seller_id == obj.userID){
-            ans = (true && prestamo.userId== users[i].id) && prestamo.objectId== obj.userID;
+            return true;
         }
     }
-    
-    return ans;
+    return false;
 }
 
 exports.fk_on_read_one = function(obj, prestamo) {
     var file = './data/usuarios.json';
     var data = fs.readFileSync(file, 'utf8');
     var users = JSON.parse(data);
-
-    var file2 = './data/objetos.json';
-    var data2 = fs.readFileSync(file2, 'utf8');
-    var objects = JSON.parse(data2);
     
-    var ans = false;
-    var usuarioOk=false;
     for (var i = 0; i < users.length; i++) {
         if(users[i].id==obj.userID){
-            usuarioOk=true;
-            break;
-        }
-        return false;
-    }
-    for(var j=0; j < objects.length; j++){
-        if(objects[j].id==obj.userID && objects[j].seller_id == obj.userID){
-            ans = (true && prestamo.userId== users[i].id) && prestamo.objectId== obj.userID;
+            return true;
         }
     }
     
-    return ans;
+    return false;
 }
 
 exports.fk_on_update = function(obj, prestamo) {
@@ -116,66 +80,22 @@ exports.fk_on_update = function(obj, prestamo) {
     var data = fs.readFileSync(file, 'utf8');
     var users = JSON.parse(data);
 
-    var file2 = './data/objetos.json';
-    var data2 = fs.readFileSync(file2, 'utf8');
-    var objects = JSON.parse(data2);
-    
-    var ans = false;
-    var usuarioOk=false;
     for (var i = 0; i < users.length; i++) {
         if(users[i].id==obj.userID){
-            usuarioOk=true;
-            break;
-        }
-        return false;
-    }
-    for(var j=0; j < objects.length; j++){
-        if(objects[j].id==obj.userID && objects[j].seller_id == obj.userID){
-            ans = (true && prestamo.userId== users[i].id) && prestamo.objectId== obj.userID;
+            return true;
         }
     }
-    
-    return ans;
+    return false;
 }
 
 exports.fk_on_delete = function(obj, prestamo) {
     var file = './data/usuarios.json';
     var data = fs.readFileSync(file, 'utf8');
     var users = JSON.parse(data);
-
-    var file2 = './data/objetos.json';
-    var data2 = fs.readFileSync(file2, 'utf8');
-    var objects = JSON.parse(data2);
-    
-    var ans = false;
-    var usuarioOk=false;
     for (var i = 0; i < users.length; i++) {
         if(users[i].id==obj.userID){
-            usuarioOk=true;
-            break;
-        }
-        return false;
-    }
-    for(var j=0; j < objects.length; j++){
-        if(objects[j].id==obj.userID && objects[j].seller_id == obj.userID){
-            ans = (true && prestamo.userId== users[i].id) && prestamo.objectId== obj.userID;
+            return true;
         }
     }
-    
-    return ans;
+    return false;
 }
-/*
-exports.prestamosUsuario = function(user_id){
-    var file= './data/prestamos.json';
-    var data= fs. readFileSync(file, 'utf8');
-    var prestamos = JSON.parse(data);
-
-    var presUser=[];
-
-    for(var i=0; i < prestamos.length; i++){
-        if(prestamos[i].userId==user_id){
-            presUser.push(prestamos[i]);
-        }
-    }
-}
-*/

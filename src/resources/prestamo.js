@@ -2,7 +2,7 @@ const Controller = require('../controllers/subresourcesController');
 const {jwtMW}= require('../config');
 
 module.exports = function(app) {
-	var c = new Controller(require('../models/prestamoModel'), './data/prestamos.json', ['userID','objectID', 'prestamoID'],'objectId');
+	var c = new Controller(require('../models/prestamoModel'), './data/prestamos.json', ['userID', 'prestamoID'],'objectId');
 
 	app.get('/users/:userID/objetos/:objectID/prestamos',function(req, res)  {
 		c.list_all(req, res);
