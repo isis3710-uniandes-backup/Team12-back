@@ -1,0 +1,42 @@
+[
+    {
+        "id": "1",
+        "name": "DeWaltz brand n° 12 drill",
+        "price": 10000,
+        "seller_id": "1",
+        "description": "Inalambric drill. Specific head size",
+        "category_id": "1",
+        "subcategory_id":"2",
+        "available": true
+    },
+    {
+        "id": "2",
+        "name": "Ceramic cutter",
+        "price": 10000,
+        "seller_id": "1",
+        "description": "Electrical instrument used for cutting any ceramic product. It comes with a table and a power supply",
+        "category_id": "1",
+        "subcategory_id":"3",
+        "available": true
+    },
+    {
+        "id": "3",
+        "name": "Oscilloscope",
+        "price": 10000,
+        "seller_id": "1",
+        "description": "Electronic test instrument that graphically displays varying signal voltages, usually as a two-dimensional plot of one or more signals as a function of time ",
+        "category_id": "2",
+        "subcategory_id":"5",
+        "available": true
+    },
+    {
+        "id": "4",
+        "name": "Xbox with Kinect + games",
+        "price": 10000,
+        "seller_id": "1",
+        "description": "Xbox console with auxiliary device Kinect, that allows the player to play games with sensor",
+        "category_id": "3",
+        "subcategory_id":"10",
+        "available": true
+    }
+]

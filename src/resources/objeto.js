@@ -42,5 +42,37 @@ module.exports = function(app) {
             res.status(200).json(respuesta);
         });
 	});
+
+	app.get('/objetos-en',function(req, res)  {
+		fs.readFile('./data/objetos-en.json', 'utf8', (err, data) => {
+            if (err) {
+                throw err;
+			}
+			let respuesta = []
+			data = JSON.parse(data)
+			for (const obj of data) {
+				respuesta.push(obj)
+			}
+			
+            res.status(200).json(respuesta);
+        });
+	});
+    app.get('/objetos-en/category/:categoryID',function(req, res)  {
+		fs.readFile('./data/objetos-en.json', 'utf8', (err, data) => {
+            if (err) {
+                throw err;
+			}
+			let respuesta = []
+			data = JSON.parse(data)
+			for (const obj of data) {
+			
+				console.log(obj)
+				if (obj.category_id === req.params.categoryID){
+					respuesta.push(obj)
+				}
+			}
+            res.status(200).json(respuesta);
+        });
+	});
     
 };

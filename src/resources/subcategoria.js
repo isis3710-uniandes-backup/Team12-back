@@ -40,4 +40,33 @@ module.exports = function(app) {
             res.status(200).json(respuesta);
         });
 	});
+
+	
+	app.get('/objetos-en/subcategory/:subcategoryID',function(req, res)  {
+		fs.readFile('./data/objetos-en.json', 'utf8', (err, data) => {
+            if (err) {
+                throw err;
+			}
+			let respuesta = []
+			data = JSON.parse(data)
+			for (const obj of data) {
+			
+				console.log(obj)
+				if (obj.subcategory_id === req.params.subcategoryID){
+					respuesta.push(obj)
+				}
+			}
+			
+            res.status(200).json(respuesta);
+        });
+	});
+
+	var ceng = new Controller(require('../models/subcategoriaModel'), './data/subcategorias-en.json', ['categoryID', 'subcategoryID'], 'category_id');
+
+	app.get('/categories-en/:categoryID/subcategorias',function(req, res)  {
+		ceng.list_all(req, res);
+	})
+	app.get('/categories-en/:categoryID/subcategorias/:subcategoryID',function(req, res)  {
+		ceng.read_one(req, res);
+	})
 };

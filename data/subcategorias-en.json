@@ -1,0 +1,15 @@
+[
+    {"id":"1","name":"Wrenches","category_id":"1"},
+    {"id":"2","name":"Drills","category_id":"1"},
+    {"id":"3","name":"Cutters & saws","category_id":"1"},
+    {"id":"4","name":"Protoboards","category_id":"2"},
+    {"id":"5","name":"Measurement devices","category_id":"2"},
+    {"id":"6","name":"Stringed instruments","category_id":"6"},
+    {"id":"7","name":"Percussion instruments","category_id":"6"},
+    {"id":"8","name":"Accesories","category_id":"6"},
+    {"id":"9","name":"Electric instruments","category_id":"6"},
+    {"id":"10","name":"Videogames","category_id":"3"},
+    {"id":"11","name":"Audiovisual projectors","category_id":"3"},
+    {"id":"12","name":"Materials","category_id":"4"},
+    {"id":"13","name":"Security equipment","category_id":"4"}
+]
