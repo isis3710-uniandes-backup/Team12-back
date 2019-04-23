@@ -5,11 +5,12 @@ const fs = require('fs');
 
 exports.createSchema = { 
     id: Joi.string().optional(),
-    paymentId: Joi.string().required(),
+    paymentId: Joi.string().optional(),
     userId: Joi.string().required(),
     objectId: Joi.string().required(),
     startDate: Joi.string().required(),
-    endDate: Joi.string().required()
+    endDate: Joi.string().required(), 
+    valor: Joi.number().required()
 };
  
 exports.updateSchema = {
@@ -18,7 +19,8 @@ exports.updateSchema = {
     userId: Joi.string().optional(),
     objectId: Joi.string().optional(),
     startDate: Joi.string().optional(),
-    endDate: Joi.string().optional()
+    endDate: Joi.string().optional(),
+    valor: Joi.number().optional()
 
 };
 /*
