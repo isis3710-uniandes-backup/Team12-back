@@ -38,5 +38,120 @@
         "category_id": "3",
         "subcategory_id":"10",
         "available": true
+    },
+    {
+        "id": "5",
+        "name": "Bose Speaker",
+        "price": 50000,
+        "seller_id": "1",
+        "description": "Inalambric bluetooth speaker",
+        "category_id": "3",
+        "available": true
+    },
+    {
+        "id": "6",
+        "name": "Hitachi Video beam",
+        "price": 30000,
+        "seller_id": "1",
+        "description": "Projector device that replicates the content on a screen, connected with HDMI cable, through a light beam",
+        "category_id": "3",
+        "subcategory_id":"11",
+        "available": true
+    },
+    {
+        "id": "7",
+        "name": "Mop cart",
+        "price": 6000,
+        "seller_id": "1",
+        "description": "A little cart that carries clean water and residual water resulting from the mopping",
+        "category_id": "5",
+        "available": true
+    },
+    {
+        "id": "8",
+        "name": "Guantes de fuerza",
+        "price": 4000,
+        "seller_id": "1",
+        "description": "Cloth gloves with anti-slip material and a protector wristband. Specialized for strength jobs",
+        "category_id": "4",
+        "subcategory_id":"13",
+        "available": true
+    },
+    {
+        "id": "9",
+        "name": "Bongos",
+        "price": 20000,
+        "seller_id": "1",
+        "description": "Wooden percussion instrument with two hand drums",
+        "category_id": "6",
+        "subcategory_id":"7",
+        "available": false
+    },
+    {
+        "id": "10",
+        "name": "Electric guitar",
+        "price": 30000,
+        "seller_id": "1",
+        "description": "Electric musical instrument. It includes a tuner but not an amplifier",
+        "category_id": "6",
+        "subcategory_id":"9",
+        "available": true
+    },
+    {
+        "id": "11",
+        "name": "Screwdriver set",
+        "price": 5000,
+        "seller_id": "1",
+        "description": "This set has 8 screwdrivers, 4 of which have flat head, and the other 4 have a starred head",
+        "category_id": "1",
+        "available": false
+    },
+    {
+        "id": "12",
+        "name": "Stompbox",
+        "price": 10000,
+        "seller_id": "1",
+        "description": "Auxiliar device to the electric guitar that allows the addition of effects to the sound of the instrument",
+        "category_id": "6",
+        "subcategory_id":"8",
+        "available": true
+    },
+    {
+        "id": "13",
+        "name": "Rock band battery xbox 360",
+        "price": 14000,
+        "seller_id": "1",
+        "description": "Xbox's auxiliar device that allows the user to play battery in the Rock Band games",
+        "category_id": "3",
+        "subcategory_id":"10",
+        "available": true
+    },
+    {
+        "id": "14",
+        "name": "HDMI M-F Cable",
+        "price": 3500,
+        "seller_id": "1",
+        "description": "HDMI Cable with a male and a female head. 2 meters long",
+        "category_id": "3",
+        "available": true
+    },
+    {
+        "id": "15",
+        "name": "Multimeter",
+        "price": 12000,
+        "seller_id": "1",
+        "description": "Measuring device that reads alternate and direct current, resistence and voltage",
+        "category_id": "2",
+        "subcategory_id":"5",
+        "available": false
+    },
+    {
+        "id": "16",
+        "name": "Polishing machine",
+        "price": 17000,
+        "seller_id": "1",
+        "description": "Machine used for polishing the floors with the help of a special wax",
+        "category_id": "5",
+        "available": true
     }
 ]

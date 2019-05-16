@@ -2,7 +2,7 @@
     {
         "id": "1",
         "name": "Taladro deWaltz 12 ",
-        "price": 10000,
+        "price": 5000,
         "seller_id": "1",
         "description": "Taladro inalámbrico de broca específica",
         "category_id": "1",
@@ -22,12 +22,12 @@
     {
         "id": "3",
         "name": "Osciloscopio",
-        "price": 10000,
+        "price": 20000,
         "seller_id": "1",
         "description": "Un osciloscopio es un instrumento de visualización electrónico para la representación gráfica de señales eléctricas que pueden variar en el tiempo. Es muy usado en electrónica de señal, frecuentemente junto a un analizador de espectro. Presenta los valores de las señales eléctricas en forma de coordenadas en una pantalla, en la que normalmente el eje X (horizontal) representa tiempos y el eje Y (vertical) representa tensiones. La imagen así obtenida se denomina oscilograma. Suelen incluir otra entrada, llamada eje THRASHER o Cilindro de Wehnel que controla la luminosidad del haz, permitiendo resaltar o apagar algunos segmentos de la traza. ",
         "category_id": "2",
         "subcategory_id":"5",
-        "available": true
+        "available": false
     },
     {
         "id": "4",
@@ -37,6 +37,121 @@
         "description": "Dispositivo auxiliar de la consola xbox que permite al usuario jugar de forma interactiva",
         "category_id": "3",
         "subcategory_id":"10",
+        "available": true
+    },
+    {
+        "id": "5",
+        "name": "Parlante bosé Speaker",
+        "price": 50000,
+        "seller_id": "1",
+        "description": "Dispositivo amplificador de audio con conexión inalámbrica por bluetooth",
+        "category_id": "3",
+        "available": true
+    },
+    {
+        "id": "6",
+        "name": "Video beam marca Hitachi",
+        "price": 30000,
+        "seller_id": "1",
+        "description": "Dispositivo que permite proyectar en un rayo de luz el contenido de una pantalla conectada por medio de HDMI",
+        "category_id": "3",
+        "subcategory_id":"11",
+        "available": true
+    },
+    {
+        "id": "7",
+        "name": "Exprimidor de trapero",
+        "price": 6000,
+        "seller_id": "1",
+        "description": "Cubeta para hacer oficio que permite cargar agua para limpiar un trapero y tiene un espacio para almacenar el agua sucia",
+        "category_id": "5",
+        "available": true
+    },
+    {
+        "id": "8",
+        "name": "Guantes de fuerza",
+        "price": 4000,
+        "seller_id": "1",
+        "description": "Guantes de tela con antideslizante y una banda protectora de la muñeca especializados para hacer fuerza",
+        "category_id": "4",
+        "subcategory_id":"13",
+        "available": true
+    },
+    {
+        "id": "9",
+        "name": "Bongos",
+        "price": 20000,
+        "seller_id": "1",
+        "description": "Instrumento de percusión que tiene dos tambores unidos por un trozo de madera",
+        "category_id": "6",
+        "subcategory_id":"7",
+        "available": false
+    },
+    {
+        "id": "10",
+        "name": "Guitarra eléctrica",
+        "price": 30000,
+        "seller_id": "1",
+        "description": "Instrumento musical no acústico. La guitarra viene con un afinador pero sin un amplificador",
+        "category_id": "6",
+        "subcategory_id":"9",
+        "available": true
+    },
+    {
+        "id": "11",
+        "name": "Set de destornilladores",
+        "price": 5000,
+        "seller_id": "1",
+        "description": "Este conjunto contiene 8 destornilladores, de los cuales 4 son de cabeza de pala y 4 de estrella",
+        "category_id": "1",
+        "available": false
+    },
+    {
+        "id": "12",
+        "name": "Pedal para guitarra eléctrica",
+        "price": 10000,
+        "seller_id": "1",
+        "description": "Dispositivo auxiliar que permite agregar efectos sonoros a la guitarra eléctrica",
+        "category_id": "6",
+        "subcategory_id":"8",
+        "available": true
+    },
+    {
+        "id": "13",
+        "name": "Batería rock band xbox 360",
+        "price": 14000,
+        "seller_id": "1",
+        "description": "Dispositivo auxiliar de la consola xbox que permite al usuario jugar el juego rock band de forma interactiva con un simulador de batería",
+        "category_id": "3",
+        "subcategory_id":"10",
+        "available": true
+    },
+    {
+        "id": "14",
+        "name": "Cable HDMI M-H",
+        "price": 3500,
+        "seller_id": "1",
+        "description": "Cable con entrada HDMI de cabeza macho y hembra. 2 metros de longitud",
+        "category_id": "3",
+        "available": true
+    },
+    {
+        "id": "15",
+        "name": "Multimetro",
+        "price": 12000,
+        "seller_id": "1",
+        "description": "Dispositivo que permite tomar varias medidas como corriente alterna, directa, resistencia y voltaje",
+        "category_id": "2",
+        "subcategory_id":"5",
+        "available": false
+    },
+    {
+        "id": "16",
+        "name": "Pulidora",
+        "price": 17000,
+        "seller_id": "1",
+        "description": "Aparato que permite pulir el suelo aplicando una cera especial",
+        "category_id": "5",
         "available": true
     }
 ]
