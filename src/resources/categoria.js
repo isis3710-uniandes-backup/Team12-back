@@ -14,16 +14,33 @@ module.exports = function(app) {
             for (const cat of data) {
                 categorias[cat.id] = cat;
                 categorias[cat.id].subcategories = [];
+                categorias[cat.id].objects = [];
             }
             fs.readFile('./data/subcategorias.json', 'utf8', (err, subcategories) => {
                 if (err) {
                     throw err;
                 }
-                subcategories = JSON.parse(subcategories)
+                var subcategories = JSON.parse(subcategories);
+                var subcats = {};
                 for (const subcat of subcategories) {
-                    categorias[subcat.category_id].subcategories.push(subcat);
+                    subcats[subcat.id] = subcat;
+                    subcats[subcat.id].objects = [];
                 }
-                res.status(200).json(Object.keys(categorias).map(k => categorias[k]));
+                fs.readFile('./data/objetos.json', 'utf8', (err, objects) => {
+                    if (err) {
+                        throw err;
+                    }
+                    var objects = JSON.parse(objects);
+                    for (const object of objects) {
+                        if (typeof subcats[object.subcategory_id] !== 'undefined')
+                            subcats[object.subcategory_id].objects.push(object);
+                        categorias[object.category_id].objects.push(object);
+                    }
+                    for (var k in subcats) {
+                        categorias[subcats[k].category_id].subcategories.push(subcats[k]);
+                    }
+                    res.status(200).json(Object.keys(categorias).map(k => categorias[k]));
+                });
             });
         });
     })
