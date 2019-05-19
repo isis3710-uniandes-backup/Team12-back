@@ -24,6 +24,25 @@ module.exports = function(app) {
 	app.get('/objetos',function(req, res)  {
 		c.list_all(req, res);
 	});
+	app.get('/objetos/:objID',function(req, res)  {
+		fs.readFile('./data/objetos.json', 'utf8', (err, data) => {
+            if (err) {
+                throw err;
+			}
+			let respuesta = null
+			data = JSON.parse(data)
+			for (const obj of data) {
+			
+				console.log(obj)
+				if (obj.id === req.params.objID){
+					respuesta=obj
+					break;
+				}
+			}
+            res.status(200).json(respuesta);
+		});
+		
+	});
     app.get('/objetos/category/:categoryID',function(req, res)  {
 		fs.readFile('./data/objetos.json', 'utf8', (err, data) => {
             if (err) {
@@ -54,6 +73,24 @@ module.exports = function(app) {
 				respuesta.push(obj)
 			}
 			
+            res.status(200).json(respuesta);
+        });
+	});
+	app.get('/objetos-en/:objID',function(req, res)  {
+		fs.readFile('./data/objetos-en.json', 'utf8', (err, data) => {
+            if (err) {
+                throw err;
+			}
+			let respuesta = null
+			data = JSON.parse(data)
+			for (const obj of data) {
+			
+				console.log(obj)
+				if (obj.id === req.params.objID){
+					respuesta=obj
+					break;
+				}
+			}
             res.status(200).json(respuesta);
         });
 	});

@@ -13,9 +13,6 @@ module.exports = function(app) {
 	app.post('/users/:userID/prestamos',function(req, res)  {
 		c.create(req, res);
 	})
-	app.post('/users/:userID/prestamos',function(req, res)  {
-		c.list_all(req, res);
-	})
 	app.get('/users/:userID/prestamos/:prestamoID',function(req, res)  {
 		c.read_one(req, res);
 	})

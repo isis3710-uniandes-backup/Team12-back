@@ -11,7 +11,7 @@ const prestamos = require('./resources/prestamo.js');
 const servicios = require('./resources/servicio.js');
 const subcategorias = require('./resources/subcategoria.js');
 const users = require('./resources/usuario.js');
-const reset = require('./resources/reset.js');
+//const reset = require('./resources/reset.js');
 const login = require('./resources/login.js');
 const signup = require('./resources/signup.js');
 //app initialization
@@ -47,7 +47,7 @@ subcategorias(app);
 pagos(app);
 prestamos(app);
 ofertas(app);
-reset(app);
+//reset(app);
 login(app);
 signup(app);
 //app.use('/objetos', objetos)

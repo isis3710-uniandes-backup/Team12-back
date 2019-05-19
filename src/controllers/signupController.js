@@ -37,7 +37,7 @@ class signupController {
             var result = Joi.validate(req.body, this.model.createSchema);
             if (result.error) {
                 console.log(result.error);
-                res.status(400).send();
+                res.status(400).send(result.error);
                 return;
             }
             for (var i = 0; i < resources.length; i++) {
