@@ -69,6 +69,7 @@ class subresourcesController {
     }
 
     create(req, res) {
+        console.log(req.body)
         /*
         Teoricamente al tener base de datos, esta nos debería decir si las llaves foraneas del objeto existen
         o no. Sin embargo, es necesario comprobar la existencia del objeto. Por tanto, se plantea una función
@@ -109,7 +110,7 @@ class subresourcesController {
                     if (err) {
                         throw err;
                     }
-                    res.status(200).send('Recurso creado con éxito');
+                    res.status(200).send({"response":'Recurso creado con éxito'});
                 });
             }
         });

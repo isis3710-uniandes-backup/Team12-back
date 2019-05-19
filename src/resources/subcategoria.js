@@ -22,7 +22,7 @@ module.exports = function(app) {
 	})
     // services Routes
  
-	app.get('/objetos/subcategory/:subcategoryID',function(req, res)  {
+	app.get('/objetos/category/:categoryID/subcategory/:subcategoryID',function(req, res)  {
 		fs.readFile('./data/objetos.json', 'utf8', (err, data) => {
             if (err) {
                 throw err;
@@ -32,7 +32,7 @@ module.exports = function(app) {
 			for (const obj of data) {
 			
 				console.log(obj)
-				if (obj.subcategory_id === req.params.subcategoryID){
+				if (obj.subcategory_id === req.params.subcategoryID && obj.category_id === req.params.categoryID){
 					respuesta.push(obj)
 				}
 			}
